@@ -1,0 +1,9 @@
+filter:
+    excluded_paths:
+        - 'test.php'
+checks:
+    php:
+        code_rating: true
+        duplication: true
+        return_doc_comments: true
+        uppercase_constants: true

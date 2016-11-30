@@ -1,0 +1,18 @@
+# Gush configuration file, any comments will be lost.
+repo_adapter: github
+issue_tracker: jira
+repo_org: sctr
+repo_name: itsup-api-client
+issue_project_org: sctr
+issue_project_name: itsup-api-client
+pr_type:
+    - feature
+    - bugfix
+    - refactor
+    - tests
+    - remove
+    - style
+    - documentation
+    - security
+table-pr:
+    fixed_tickets: ['Fixed Tickets', '']
