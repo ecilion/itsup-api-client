@@ -95,7 +95,7 @@ class Client extends BaseClient
     /**
      * @return null|string
      */
-    public function getApiKey(): ?string
+    public function getApiKey(): string
     {
         if (!isset($this->apiKey) || empty($this->apiKey)) {
             return $this->getConfig('api_key');
