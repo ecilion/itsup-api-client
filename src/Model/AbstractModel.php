@@ -5,10 +5,11 @@
  *
  * Distribution and reproduction are prohibited.
  *
- * @package     bang-api-client
+ * @package     itsup-api-client
  * @copyright   SCTR Services LLC 2016
  * @license     No License (Proprietary)
  */
+
 
 namespace Itsup\Api\Model;
 
