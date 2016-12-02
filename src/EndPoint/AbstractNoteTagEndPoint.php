@@ -10,7 +10,7 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Endpoint;
+namespace Itsup\Api\EndPoint;
 
 use Itsup\Api\Model\AbstractModel;
 use Itsup\Api\Model\Note;

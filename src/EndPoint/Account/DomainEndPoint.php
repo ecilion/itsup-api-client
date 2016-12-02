@@ -10,14 +10,14 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Endpoint\Account;
+namespace Itsup\Api\EndPoint\Account;
 
-use Itsup\Api\Endpoint\AbstractEntityEndPoint;
+use Itsup\Api\EndPoint\AbstractEntityEndPoint;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class DomainEndpoint extends AbstractEntityEndPoint
+class DomainEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.

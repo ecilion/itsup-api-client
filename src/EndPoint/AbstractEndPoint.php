@@ -10,7 +10,7 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Endpoint;
+namespace Itsup\Api\EndPoint;
 
 use Cache\Taggable\TaggablePoolInterface;
 use Doctrine\Common\Annotations\AnnotationReader;

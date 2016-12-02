@@ -10,7 +10,7 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Endpoint;
+namespace Itsup\Api\EndPoint;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>

@@ -10,9 +10,8 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Endpoint;
+namespace Itsup\Api\EndPoint;
 
-use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Collections\ArrayCollection;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -22,7 +21,6 @@ use Itsup\Api\Transformer\AnnotationTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
 use Psr\Http\Message\ResponseInterface;
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>

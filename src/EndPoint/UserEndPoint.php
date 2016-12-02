@@ -10,12 +10,12 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Endpoint;
+namespace Itsup\Api\EndPoint;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class UserEndpoint extends AbstractEntityEndPoint
+class UserEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.
