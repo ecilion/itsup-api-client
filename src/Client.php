@@ -83,7 +83,7 @@ class Client extends BaseClient
     /**
      * @return null|string
      */
-    public function getType(): ?string
+    public function getType(): string
     {
         if (!isset($this->type) || empty($this->type)) {
             return $this->getConfig('type');

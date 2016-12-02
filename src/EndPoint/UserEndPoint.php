@@ -15,7 +15,7 @@ namespace Itsup\Api\Endpoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class UserEndpoint extends AbstractEntityEndpoint
+class UserEndpoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.

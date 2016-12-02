@@ -31,9 +31,9 @@ class Note extends AbstractModel
     public $id;
 
     /**
-    * @var User
-    * @Transform("class", class="Itsup\Api\Model\User")
-    */
+     * @var User
+     * @Transform("class", class="Itsup\Api\Model\User")
+     */
     public $user;
 
     /**

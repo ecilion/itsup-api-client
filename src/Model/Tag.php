@@ -30,9 +30,9 @@ class Tag extends AbstractModel
     public $id;
 
     /**
-    * @var Account
-    * @Transform("class", class="Itsup\Api\Model\Account")
-    */
+     * @var Account
+     * @Transform("class", class="Itsup\Api\Model\Account")
+     */
     public $account;
 
     /**

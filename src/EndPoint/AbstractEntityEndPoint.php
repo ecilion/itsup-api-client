@@ -27,7 +27,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-abstract class AbstractEntityEndpoint extends AbstractEndpoint
+abstract class AbstractEntityEndPoint extends AbstractEndPoint
 {
     /**
      * The model name.
@@ -306,7 +306,7 @@ abstract class AbstractEntityEndpoint extends AbstractEndpoint
      * Format object to a format usable by the API POST call.
      *
      * @param AbstractModel $object
-     * @param bool|string $formName
+     * @param bool|string   $formName
      *
      * @return array
      */

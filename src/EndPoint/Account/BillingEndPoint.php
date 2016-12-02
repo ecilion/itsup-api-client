@@ -12,12 +12,12 @@
 
 namespace Itsup\Api\Endpoint\Account;
 
-use Itsup\Api\Endpoint\AbstractEntityEndpoint;
+use Itsup\Api\Endpoint\AbstractEntityEndPoint;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class BillingEndpoint extends AbstractEntityEndpoint
+class BillingEndpoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.

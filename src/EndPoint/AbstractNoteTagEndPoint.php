@@ -18,14 +18,13 @@ use Itsup\Api\Model\Note;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-abstract class AbstractNoteTagEndpoint extends AbstractEntityEndpoint
+abstract class AbstractNoteTagEndPoint extends AbstractEntityEndPoint
 {
     /**
      * Set an object tags using the API.
      *
      * @param AbstractModel  $object
      * @param array|string[] $tags
-     *
      *
      * @return bool|AbstractModel
      */
@@ -41,9 +40,8 @@ abstract class AbstractNoteTagEndpoint extends AbstractEntityEndpoint
     /**
      * Add a note to an object using the API.
      *
-     * @param AbstractModel  $object
-     * @param Note           $note
-     *
+     * @param AbstractModel $object
+     * @param Note          $note
      *
      * @return bool|AbstractModel
      */
@@ -59,9 +57,8 @@ abstract class AbstractNoteTagEndpoint extends AbstractEntityEndpoint
     /**
      * Remove a note from an object using the API.
      *
-     * @param AbstractModel  $object
-     * @param Note           $note
-     *
+     * @param AbstractModel $object
+     * @param Note          $note
      *
      * @return bool|AbstractModel
      */

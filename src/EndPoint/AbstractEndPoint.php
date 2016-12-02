@@ -14,9 +14,6 @@ namespace Itsup\Api\Endpoint;
 
 use Cache\Taggable\TaggablePoolInterface;
 use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Collections\ArrayCollection;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use Itsup\Api\Annotation\Cache;
 use Itsup\Api\Client;
@@ -28,7 +25,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-abstract class AbstractEndpoint
+abstract class AbstractEndPoint
 {
     /**
      * @var Client

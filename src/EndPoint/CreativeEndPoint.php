@@ -15,7 +15,7 @@ namespace Itsup\Api\Endpoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class CreativeEndpoint extends AbstractNoteTagEndpoint
+class CreativeEndpoint extends AbstractNoteTagEndPoint
 {
     /**
      * The model name.
