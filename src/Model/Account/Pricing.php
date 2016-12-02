@@ -14,11 +14,13 @@ namespace Itsup\Api\Model\Account;
 
 use Itsup\Api\Annotation\Transform;
 use Itsup\Api\Model\AbstractModel;
+use Itsup\Api\Model\Account;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
  * @method int getId()
+ * @method Account getAccount()
  * @method \DateTime getFrom()
  * @method \DateTime getTo()
  * @method bool getCpm()
@@ -30,6 +32,12 @@ class Pricing extends AbstractModel
      * @Transform("int")
      */
     public $id;
+
+    /**
+     * @var Account
+     * @Transform("class", class="Itsup\Api\Model\Account")
+     */
+    public $account;
 
     /**
      * @var \DateTime

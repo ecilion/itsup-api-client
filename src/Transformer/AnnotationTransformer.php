@@ -15,11 +15,11 @@ namespace Itsup\Api\Transformer;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\CachedReader;
 use Doctrine\Common\Cache\FilesystemCache;
+use Itsup\Api\Annotation\Hide;
+use Itsup\Api\Annotation\Transform;
 use League\Fractal\Manager;
 use League\Fractal\TransformerAbstract;
 use ReflectionClass;
-use Sctr\Bang\Api\Annotation\Hide;
-use Sctr\Bang\Api\Annotation\Transform;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
