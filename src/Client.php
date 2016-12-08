@@ -21,14 +21,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
- *
- * @property-read \Sctr\Bang\Api\Endpoint\AdminEndpoint     $admin
- * @property-read \Sctr\Bang\Api\Endpoint\AffiliateEndpoint $affiliate
- * @property-read \Sctr\Bang\Api\Endpoint\CustomerEndpoint  $customer
- * @property-read \Sctr\Bang\Api\Endpoint\EmailEndpoint     $email
- * @property-read \Sctr\Bang\Api\Endpoint\GeoIpEndpoint     $geoip
- * @property-read \Sctr\Bang\Api\Endpoint\PromotionEndpoint $promotion
- * @property-read \Sctr\Bang\Api\Endpoint\SessionEndpoint   $session
  */
 class Client extends BaseClient
 {
@@ -83,7 +75,7 @@ class Client extends BaseClient
     /**
      * @return null|string
      */
-    public function getCacheDir(): ?string
+    public function getCacheDir()
     {
         return $this->cacheDir;
     }
@@ -91,7 +83,7 @@ class Client extends BaseClient
     /**
      * @return null|string
      */
-    public function getType(): ?string
+    public function getType(): string
     {
         if (!isset($this->type) || empty($this->type)) {
             return $this->getConfig('type');
@@ -103,7 +95,7 @@ class Client extends BaseClient
     /**
      * @return null|string
      */
-    public function getApiKey(): ?string
+    public function getApiKey(): string
     {
         if (!isset($this->apiKey) || empty($this->apiKey)) {
             return $this->getConfig('api_key');
@@ -161,39 +153,19 @@ class Client extends BaseClient
     }
 
     /**
-     * @param string $name
+     * Catch any function call and send it to the right EndPoint.
+     *
+     * @param string $function
      * @param array  $arguments
      *
      * @throws \Exception
      *
      * @return mixed
      */
-    public function __call(string $name, array $arguments = [])
+    public function __call(string $function, array $arguments = [])
     {
-        $modelClass = '';
-        $function   = '';
-        switch ($name) {
-            case 'create':
-            case 'update':
-            case 'delete':
-            case 'setTags':
-            case 'addNote':
-            case 'updateNote':
-            case 'deleteNote':
-                $modelClass = get_class($arguments[0]);
-                $endPoint   = '\\'.str_replace('Model', 'EndPoint', $modelClass).'EndPoint';
-                $function   = $name;
-                break;
-            default:
-                if (strpos($name, 'findAll') !== false) {
-                    $modelClass = str_replace('findAll', '', $name);
-                    $function   = 'findAll';
-                } elseif (strpos($name, 'find') !== false) {
-                    $modelClass = str_replace('find', '', $name);
-                    $function   = 'find';
-                }
-                $endPoint = '\Itsup\Api\Endpoint\\'.$modelClass.'Endpoint';
-        }
+        $modelClass = get_class($arguments[0]);
+        $endPoint   = '\\'.str_replace('Model', 'EndPoint', $modelClass).'EndPoint';
         if (!class_exists($endPoint)) {
             throw new \Exception("Endpoint \"{$modelClass}\" does not exist. ");
         }
@@ -202,6 +174,8 @@ class Client extends BaseClient
     }
 
     /**
+     * Call an EndPoint function with the given arguments.
+     *
      * @param string $endPointClass
      * @param string $function
      * @param array  $arguments
@@ -214,15 +188,14 @@ class Client extends BaseClient
     {
         $endPoint = new $endPointClass($this);
         if (!method_exists($endPoint, $function)) {
-            throw new \Exception('Function "'.$function.'" does not exists for endPoint "'.$endPointClass.'"');
+            throw new \Exception("Method \"{$function}\" does not exists for endPoint \"{$endPointClass}\"");
         }
 
-        $nbArguments = count($arguments);
-        if ($nbArguments === 2) {
+        if (count($arguments) === 2) {
             return $endPoint->$function($arguments[0], $arguments[1]);
-        } else {
-            return $endPoint->$function($arguments[0]);
         }
+
+        return $endPoint->$function($arguments[0]);
     }
 
     /**

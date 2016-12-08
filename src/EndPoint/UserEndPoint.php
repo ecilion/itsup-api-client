@@ -15,19 +15,19 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class AccountEndPoint extends AbstractEntityEndPoint
+class UserEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.
      *
      * @var string
      */
-    protected $model = 'Account';
+    protected $model = 'User';
 
     /**
      * The API URI without the first "/".
      *
      * @var string
      */
-    protected $route = 'account';
+    protected $route = 'user';
 }

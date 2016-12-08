@@ -10,24 +10,26 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\EndPoint;
+namespace Itsup\Api\EndPoint\Account;
+
+use Itsup\Api\EndPoint\AbstractEntityEndPoint;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class AccountEndPoint extends AbstractEntityEndPoint
+class PricingEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.
      *
      * @var string
      */
-    protected $model = 'Account';
+    protected $model = 'Pricing';
 
     /**
      * The API URI without the first "/".
      *
      * @var string
      */
-    protected $route = 'account';
+    protected $route = 'account/pricing';
 }

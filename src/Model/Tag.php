@@ -10,22 +10,18 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Model\Account;
+namespace Itsup\Api\Model;
 
 use Itsup\Api\Annotation\Transform;
-use Itsup\Api\Model\AbstractModel;
-use Itsup\Api\Model\Account;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
  * @method int getId()
  * @method Account getAccount()
- * @method \DateTime getFrom()
- * @method \DateTime getTo()
- * @method bool getCpm()
+ * @method string getName()
  */
-class Pricing extends AbstractModel
+class Tag extends AbstractModel
 {
     /**
      * @var int
@@ -40,25 +36,7 @@ class Pricing extends AbstractModel
     public $account;
 
     /**
-     * @var \DateTime
-     * @Transform("date")
+     * @var string
      */
-    public $from;
-
-    /**
-     * @var \DateTime
-     * @Transform("date")
-     */
-    public $to;
-
-    /**
-     * @var bool
-     * @Transform("bool")
-     */
-    public $cpm;
-
-    public function isCpm(): bool
-    {
-        return $this->cpm;
-    }
+    public $name;
 }

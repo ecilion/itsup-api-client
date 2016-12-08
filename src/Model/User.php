@@ -10,24 +10,28 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Model\Account;
+namespace Itsup\Api\Model;
 
 use Itsup\Api\Annotation\Transform;
-use Itsup\Api\Model\AbstractModel;
-use Itsup\Api\Model\Account;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
  * @method int getId()
  * @method Account getAccount()
- * @method string getName()
- * @method string getToken()
+ * @method string getEmail()
  * @method string getUsername()
  * @method string getPassword()
- * @method bool getValid()
+ * @method string getSalt()
+ * @method array getRoles()
+ * @method string getName()
+ * @method string getPhone()
+ * @method string getSkype()
+ * @method string getTimezone()
+ * @method string getApiKey()
+ * @method bool getEnabled()
  */
-class ExternalStatisticsProvider extends AbstractModel
+class User extends AbstractModel
 {
     /**
      * @var int
@@ -44,12 +48,7 @@ class ExternalStatisticsProvider extends AbstractModel
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $token;
+    public $email;
 
     /**
      * @var string
@@ -62,16 +61,52 @@ class ExternalStatisticsProvider extends AbstractModel
     public $password;
 
     /**
+     * @var string
+     */
+    public $salt;
+
+    /**
+     * @var array
+     * @Transform("string", collection=true)
+     */
+    public $roles;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $phone;
+
+    /**
+     * @var string
+     */
+    public $skype;
+
+    /**
+     * @var string
+     */
+    public $timezone;
+
+    /**
+     * @var string
+     */
+    public $apiKey;
+
+    /**
      * @var bool
      * @Transform("bool")
      */
-    public $valid;
+    public $enabled;
 
     /**
      * @return bool
      */
-    public function isValid(): bool
+    public function isEnabled(): bool
     {
-        return $this->valid;
+        return $this->enabled;
     }
 }

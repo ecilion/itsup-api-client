@@ -15,19 +15,29 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class AccountEndPoint extends AbstractEntityEndPoint
+class CreativeEndPoint extends AbstractTagEndPoint
 {
     /**
      * The model name.
      *
      * @var string
      */
-    protected $model = 'Account';
+    protected $model = 'Creative';
 
     /**
      * The API URI without the first "/".
      *
      * @var string
      */
-    protected $route = 'account';
+    protected $route = 'creative';
+
+    /**
+     * Creative properties that should not be send to the api.
+     *
+     * @var string[]
+     */
+    protected $propertiesNotToBeSend = [
+        'dateCreated',
+        'tags',
+    ];
 }
