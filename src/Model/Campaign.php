@@ -19,27 +19,25 @@ use Itsup\Api\Annotation\Transform;
  *
  * @method int getId()
  * @method Account getAccount()
- * @method string getStatus()
+ * @method Campaign getCampaign()
+ * @method Offer getOffer()
  * @method Contact getContact()
- * @method string getHosting()
+ * @method Event getEvent()
+ * @method string getName()
+ * @method string getRevenue()
+ * @method bool isKeepAlive()
+ * @method Campaign getFallbackCampaign()
  * @method string getType()
  * @method int getWidth()
  * @method int getHeight()
- * @method string getDisplay()
- * @method Campaign getDefaultCampaign()
- * @method Account\ExternalStatisticsProvider getExternalStatisticsProvider()
- * @method string getExternalStatisticsId()
- * @method string getExternalStatisticsIdComplement()
- * @method string getExternalStatisticsOptions()
+ * @method string getUrl()
+ * @method string getStatus()
  * @method \DateTime getDateCreated()
  * @method \DateTime getDateUpdated()
  * @method User getCreatedBy()
  * @method User getUpdatedBy()
- * @method string getAccounting()
- * @method string getCampaigns()
- * @method string getNotes()
  */
-class AdZone extends AbstractModel
+class Campaign extends AbstractModel
 {
     /**
      * @var int
@@ -55,14 +53,22 @@ class AdZone extends AbstractModel
 
     /**
      * @var Contact
-     * @Transform("class", class="Itsup\Api\Model\Contact")
+     * @Transform("class", class="Itsup\Api\Model\Offer")
      */
-    public $contact;
+
+    public $offer;
+
     /**
      * @var Campaign
      * @Transform("class", class="Itsup\Api\Model\Campaign")
      */
-    public $defaultCampaign;
+    public $fallbackCampaignId;
+
+    /**
+     * @var Event
+     * @Transform("class", class="Itsup\Api\Model\Event")
+     */
+    public $event;
 
     /**
      * @var User
@@ -84,7 +90,13 @@ class AdZone extends AbstractModel
     /**
      * @var string
      */
-    public $hosting;
+    public $revenue;
+
+    /**
+     * @var bool
+     * @Transform("bool")
+     */
+    public $keepAlive;
 
     /**
      * @var string
@@ -106,34 +118,12 @@ class AdZone extends AbstractModel
     /**
      * @var string
      */
+    public $url;
+
+    /**
+     * @var string
+     */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $display;
-
-    /**
-     * @var int
-     * @Transform("int")
-     */
-    public $externalStatisticsId;
-
-    /**
-     * @var Account\ExternalStatisticsProvider
-     * @Transform("class", class="Itsup\Api\Model\Account\ExternalStatisticsProvider")
-     */
-    public $externalStatisticsProvider;
-
-    /**
-     * @var string
-     */
-    public $externalStatisticsIdComplement;
-
-    /**
-     * @var string
-     */
-    public $externalStatisticsOptions;
 
     /**
      * @var \DateTime

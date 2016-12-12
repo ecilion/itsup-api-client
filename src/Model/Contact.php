@@ -87,19 +87,19 @@ class Contact extends AbstractModel
     public $websiteUrl;
 
     /**
-     * @var int
+     * @var bool
      * @Transform("bool")
      */
     public $publisher;
 
     /**
-     * @var int
+     * @var bool
      * @Transform("bool")
      */
     public $broker;
 
     /**
-     * @var int
+     * @var bool
      * @Transform("bool")
      */
     public $advertiser;
