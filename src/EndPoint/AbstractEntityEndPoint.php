@@ -84,7 +84,9 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     protected function getRoute(): string
     {
-        return '/'.$this->route;
+        $route = !empty($this->route) ? $this->route : strtolower($this->model);
+
+        return '/'.$route;
     }
 
     /**
