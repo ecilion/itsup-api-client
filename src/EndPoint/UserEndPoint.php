@@ -23,11 +23,4 @@ class UserEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'User';
-
-    /**
-     * The API URI without the first "/".
-     *
-     * @var string
-     */
-    protected $route = 'user';
 }
