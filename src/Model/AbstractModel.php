@@ -10,7 +10,6 @@
  * @license     No License (Proprietary)
  */
 
-
 namespace Itsup\Api\Model;
 
 /**
