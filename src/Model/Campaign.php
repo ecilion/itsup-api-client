@@ -52,7 +52,7 @@ class Campaign extends AbstractModel
     public $account;
 
     /**
-     * @var Contact
+     * @var Offer
      * @Transform("class", class="Itsup\Api\Model\Offer")
      */
 
