@@ -5,7 +5,7 @@
  *
  * Distribution and reproduction are prohibited.
  *
- * @package     api.itsup.com
+ * @package     itsup-api-client
  * @copyright   SCTR Services LLC 2016
  * @license     No License (Proprietary)
  */

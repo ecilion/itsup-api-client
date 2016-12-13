@@ -13,8 +13,6 @@
 namespace Itsup\Api\EndPoint;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use Itsup\Api\Exception\ApiException;
 use Itsup\Api\Model\AbstractModel;
