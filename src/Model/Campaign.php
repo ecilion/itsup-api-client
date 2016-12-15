@@ -55,7 +55,6 @@ class Campaign extends AbstractModel
      * @var Offer
      * @Transform("class", class="Itsup\Api\Model\Offer")
      */
-
     public $offer;
 
     /**
