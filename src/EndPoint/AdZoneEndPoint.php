@@ -15,7 +15,7 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class AdZoneEndPoint extends AbstractEntityEndPoint
+class AdZoneEndPoint extends AbstractTagEndPoint
 {
     /**
      * The model name.
@@ -34,5 +34,6 @@ class AdZoneEndPoint extends AbstractEntityEndPoint
         'createdBy',
         'dateUpdated',
         'updatedBy',
+        'tags',
     ];
 }

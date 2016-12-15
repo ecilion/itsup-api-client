@@ -15,7 +15,7 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class CampaignEndPoint extends AbstractEntityEndPoint
+class CampaignEndPoint extends AbstractTagEndPoint
 {
     /**
      * The model name.
@@ -38,5 +38,6 @@ class CampaignEndPoint extends AbstractEntityEndPoint
      */
     protected $propertiesNotToBeSend = [
         'dateCreated',
+        'tags',
     ];
 }

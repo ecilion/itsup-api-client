@@ -15,7 +15,7 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class OfferEndPoint extends AbstractEntityEndPoint
+class OfferEndPoint extends AbstractTagEndPoint
 {
     /**
      * The model name.
@@ -23,4 +23,13 @@ class OfferEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Offer';
+
+    /**
+     * Creative properties that should not be send to the api.
+     *
+     * @var string[]
+     */
+    protected $propertiesNotToBeSend = [
+        'tags',
+    ];
 }
