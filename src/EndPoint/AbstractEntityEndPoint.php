@@ -13,9 +13,8 @@
 namespace Itsup\Api\EndPoint;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
+use Itsup\Api\Exception\ApiException;
 use Itsup\Api\Model\AbstractModel;
 use Itsup\Api\Transformer\AnnotationTransformer;
 use League\Fractal\Manager;
@@ -85,7 +84,9 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     protected function getRoute(): string
     {
-        return '/'.$this->route;
+        $route = !empty($this->route) ? $this->route : strtolower($this->model);
+
+        return '/'.$route;
     }
 
     /**
@@ -93,7 +94,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      *
      * @param AbstractModel $object
      *
-     * @throws \Exception
+     * @throws ApiException
      *
      * @return bool|AbstractModel|array
      */
@@ -111,7 +112,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      *
      * @param AbstractModel $object
      *
-     * @throws \Exception
+     * @throws ApiException
      *
      * @return bool|AbstractModel|array
      */
@@ -182,7 +183,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      * @param string $returnType
      * @param bool   $collection
      *
-     * @throws \Exception
+     * @throws ApiException
      *
      * @return bool|AbstractModel|array
      */
@@ -195,28 +196,35 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     ) {
         try {
             $response = $this->cacheRequest($method, $route, $parameters);
-
-            if ($returnType === 'model') {
-                return $this->buildObject($this->getModel(), $response, $collection);
-            } else {
-                if ($returnType !== 'array') {
-                    $class = '\Itsup\Api\Model\\'.$returnType;
-                    if (class_exists($class)) {
-                        return $this->buildObject($returnType, $response, $collection);
-                    }
-                }
-                $result = json_decode($response->getBody()->getContents(), true);
-
-                return isset($result['content']) ? $result['content'] : [];
-            }
         } catch (\Exception $exception) {
-            if ($exception instanceof ServerException || $exception instanceof ClientException) {
-                if ($exception->getCode() === 404) {
-                    return false;
+            throw new ApiException(
+                [
+                    'code'    => $exception->getCode(),
+                    'type'    => get_class($exception),
+                    'message' => $exception->getMessage(),
+                ]
+            );
+        }
+        if ($response->getStatusCode() >= 400) {
+            $result              = json_decode($response->getBody()->getContents(), true);
+            $exceptionParameters =
+                isset($result['ApiException']) ?
+                    $result['ApiException'] :
+                    ['code' => 500, 'type' => 'internal_exception', 'message' => 'Internal Server Error'];
+            throw new ApiException($exceptionParameters);
+        }
+        if ($returnType === 'model') {
+            return $this->buildObject($this->getModel(), $response, $collection);
+        } else {
+            if ($returnType !== 'array') {
+                $class = '\Itsup\Api\Model\\'.$returnType;
+                if (class_exists($class)) {
+                    return $this->buildObject($returnType, $response, $collection);
                 }
             }
+            $result = json_decode($response->getBody()->getContents(), true);
 
-            throw $exception;
+            return isset($result['content']) ? $result['content'] : [];
         }
     }
 
@@ -227,7 +235,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      * @param ResponseInterface $response
      * @param bool              $collection
      *
-     * @throws \Exception
+     * @throws ApiException
      *
      * @return mixed
      */
@@ -261,22 +269,25 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
             }
 
             if (empty($data)) {
+                $message = sprintf(
+                    "Response from API returned malformed data.\n\nData: %s",
+                    (string) $response->getBody()
+                );
                 if (is_array($json)) {
-                    throw new \Exception(
-                        sprintf(
-                            "Response from API returned malformed data.\n\nURL: %s\n\nData: %s\n\nFull Json: %s",
-                            $json['_links']['self'],
-                            $json['content'],
-                            json_encode($json)
-                        )
+                    $message = sprintf(
+                        "Response from API returned malformed data.\n\nURL: %s\n\nData: %s\n\nFull Json: %s",
+                        $json['_links']['self'],
+                        $json['content'],
+                        json_encode($json)
                     );
                 }
 
-                throw new \Exception(
-                    sprintf(
-                        "Response from API returned malformed data.\n\nData: %s",
-                        (string) $response->getBody()
-                    )
+                throw new ApiException(
+                    [
+                        'code'    => 500,
+                        'type'    => 'invalid_json',
+                        'message' => $message,
+                    ]
                 );
             }
 
