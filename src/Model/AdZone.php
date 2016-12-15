@@ -13,8 +13,6 @@
 namespace Itsup\Api\Model;
 
 use Itsup\Api\Annotation\Transform;
-use Itsup\Api\Model\AdZone\Accounting;
-use Itsup\Api\Model\AdZone\AdZoneCampaign;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>

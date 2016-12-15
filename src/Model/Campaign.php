@@ -13,15 +13,6 @@
 namespace Itsup\Api\Model;
 
 use Itsup\Api\Annotation\Transform;
-use Itsup\Api\Model\Metrics\Browser;
-use Itsup\Api\Model\Metrics\Country;
-use Itsup\Api\Model\Metrics\Device;
-use Itsup\Api\Model\Metrics\InternetServiceProvider;
-use Itsup\Api\Model\Metrics\Language;
-use Itsup\Api\Model\Metrics\OperatingSystem;
-use Itsup\Api\Model\Campaign\CampaignCreative;
-use Itsup\Api\Model\Campaign\Limit;
-use Itsup\Api\Model\Campaign\Sale;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
@@ -219,5 +210,4 @@ class Campaign extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Note", collection=true)
      */
     public $notes;
-
 }
