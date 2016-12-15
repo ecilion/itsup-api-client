@@ -74,5 +74,4 @@ class Offer extends AbstractModel
      * @var string
      */
     public $status;
-
 }

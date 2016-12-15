@@ -23,5 +23,4 @@ class AccountEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Account';
-
 }

@@ -30,5 +30,4 @@ class CountryEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'metrics/country';
-
 }

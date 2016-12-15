@@ -46,5 +46,4 @@ class Group extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\AdZone", collection=true)
      */
     public $adZones;
-
 }

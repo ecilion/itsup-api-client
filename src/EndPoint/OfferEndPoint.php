@@ -32,5 +32,4 @@ class OfferEndPoint extends AbstractTagEndPoint
     protected $propertiesNotToBeSend = [
         'tags',
     ];
-
 }

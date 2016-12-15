@@ -30,5 +30,4 @@ class BrowserEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'metrics/browser';
-
 }

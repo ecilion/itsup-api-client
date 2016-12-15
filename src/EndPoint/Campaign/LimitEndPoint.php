@@ -30,5 +30,4 @@ class LimitEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'campaign/limit';
-
 }

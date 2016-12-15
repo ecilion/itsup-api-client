@@ -30,5 +30,4 @@ class AccountingEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'adzone/accounting';
-
 }

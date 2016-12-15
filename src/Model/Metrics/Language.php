@@ -40,5 +40,4 @@ class Language extends AbstractModel
      * @Transform("int")
      */
     public $position;
-
 }

@@ -15,7 +15,6 @@ namespace Itsup\Api\Model\Metrics\Country;
 use Itsup\Api\Annotation\Transform;
 use Itsup\Api\Model\AbstractModel;
 
-
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *

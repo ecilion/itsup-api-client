@@ -30,5 +30,4 @@ class AdZoneCampaignEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'adzone/campaign';
-
 }
