@@ -18,25 +18,8 @@ use Itsup\Api\Model\Note;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-abstract class AbstractNoteTagEndPoint extends AbstractEntityEndPoint
+abstract class AbstractNoteEndPoint extends AbstractEntityEndPoint
 {
-    /**
-     * Set an object tags using the API.
-     *
-     * @param AbstractModel  $object
-     * @param array|string[] $tags
-     *
-     * @return bool|AbstractModel
-     */
-    public function setTags(AbstractModel $object, array $tags = [])
-    {
-        return $this->handleRequest(
-            'POST',
-            $this->getRoute().'/'.$object->getId().'/tag',
-            ['tags' => $tags]
-        );
-    }
-
     /**
      * Add a note to an object using the API.
      *
