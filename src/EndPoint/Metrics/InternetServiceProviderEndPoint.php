@@ -29,5 +29,5 @@ class InternetServiceProviderEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $route = 'metrics/internetserviceprovider';
+    protected $route = 'metrics/isp';
 }

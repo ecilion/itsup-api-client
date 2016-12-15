@@ -29,5 +29,5 @@ class OperatingSystemEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $route = 'metrics/operatingsystem';
+    protected $route = 'metrics/os';
 }
