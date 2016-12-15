@@ -41,3 +41,4 @@ class CampaignEndPoint extends AbstractTagEndPoint
         'tags',
     ];
 }
+
