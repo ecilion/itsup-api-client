@@ -14,31 +14,31 @@ namespace Itsup\Api\Model\Campaign;
 
 use Itsup\Api\Annotation\Transform;
 use Itsup\Api\Model\AbstractModel;
-use Itsup\Api\Model\AdZone;
 use Itsup\Api\Model\Campaign;
+use Itsup\Api\Model\Creative;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
- * @method AdZone getAdZone()
  * @method Campaign getCampaign()
+ * @method Creative getCreative()
  * @method int getWeight()
  * @method string getStatus()
- * @method int getImpressionsLimit()
+ * @method string getUrl()
  */
 class CampaignCreative extends AbstractModel
 {
-    /**
-     * @var AdZone
-     * @Transform("class", class="Itsup\Api\Model\AdZone")
-     */
-    public $adZone;
-
     /**
      * @var Campaign
      * @Transform("class", class="Itsup\Api\Model\Campaign")
      */
     public $campaign;
+
+    /**
+     * @var Creative
+     * @Transform("class", class="Itsup\Api\Model\Creative")
+     */
+    public $creative;
 
     /**
      * @var int
@@ -52,14 +52,7 @@ class CampaignCreative extends AbstractModel
     public $status;
 
     /**
-     * @var int
-     * @Transform("int")
+     * @var string
      */
-    public $impressionsLimit;
-
-    /**
-     * @var float
-     * @Transform("float")
-     */
-    public $price;
+    public $url;
 }

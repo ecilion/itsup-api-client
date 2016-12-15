@@ -15,25 +15,19 @@ namespace Itsup\Api\Model\AdZone;
 use Itsup\Api\Annotation\Transform;
 use Itsup\Api\Model\AbstractModel;
 use Itsup\Api\Model\AdZone;
+use Itsup\Api\Model\Campaign;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
- * @method int getId()
  * @method AdZone getAdZone()
- * @method \DateTime getFrom()
- * @method \DateTime getTo()
- * @method string getType()
- * @method float getCost()
+ * @method Campaign getCampaign()
+ * @method int getWeight()
+ * @method string getStatus()
+ * @method int getImpressionsLimit()
  */
 class AdZoneCampaign extends AbstractModel
 {
-    /**
-     * @var int
-     * @Transform("int")
-     */
-    public $id;
-
     /**
      * @var AdZone
      * @Transform("class", class="Itsup\Api\Model\AdZone")
@@ -41,25 +35,25 @@ class AdZoneCampaign extends AbstractModel
     public $adZone;
 
     /**
-     * @var \DateTime
-     * @Transform("date")
+     * @var Campaign
+     * @Transform("class", class="Itsup\Api\Model\Campaign")
      */
-    public $from;
+    public $campaign;
 
     /**
-     * @var \DateTime
-     * @Transform("date")
+     * @var int
+     * @Transform("int")
      */
-    public $to;
+    public $weight;
 
     /**
      * @var string
      */
-    public $type;
+    public $status;
 
     /**
-     * @var float
-     * @Transform("float")
+     * @var int
+     * @Transform("int")
      */
-    public $cost;
+    public $impressionsLimit;
 }

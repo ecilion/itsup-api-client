@@ -22,5 +22,5 @@ class ContactEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Campaign';
+    protected $model = 'Contact';
 }

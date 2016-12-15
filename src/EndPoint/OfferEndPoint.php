@@ -23,13 +23,4 @@ class OfferEndPoint extends AbstractTagEndPoint
      * @var string
      */
     protected $model = 'Offer';
-
-    /**
-     * Creative properties that should not be send to the api.
-     *
-     * @var string[]
-     */
-    protected $propertiesNotToBeSend = [
-        'tags',
-    ];
 }

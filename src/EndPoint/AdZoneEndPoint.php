@@ -34,6 +34,5 @@ class AdZoneEndPoint extends AbstractTagEndPoint
         'createdBy',
         'dateUpdated',
         'updatedBy',
-        'tags',
     ];
 }

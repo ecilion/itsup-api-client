@@ -21,7 +21,7 @@ use Itsup\Api\Model\Campaign;
  *
  * @method int getId()
  * @method Campaign getCampaign()
- * @method array|Limit[] getLimit()
+ * @method array|Limit getLimit()
  * @method string getType()
  * @method \DateTime getFrom()
  * @method \DateTime getTo()
@@ -43,8 +43,8 @@ class Sale extends AbstractModel
     public $campaign;
 
     /**
-     * @var Limit[]
-     * @Transform("class", class="Itsup\Api\Model\Campaign/Limit", collection=true)
+     * @var Limit
+     * @Transform("class", class="Itsup\Api\Model\Campaign/Limit")
      */
     public $limit;
 

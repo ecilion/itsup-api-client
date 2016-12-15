@@ -25,13 +25,6 @@ class CampaignEndPoint extends AbstractTagEndPoint
     protected $model = 'Campaign';
 
     /**
-     * The API URI without the first "/".
-     *
-     * @var string
-     */
-    protected $route = 'campaign';
-
-    /**
      * Creative properties that should not be send to the api.
      *
      * @var string[]

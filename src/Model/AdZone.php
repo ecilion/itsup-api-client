@@ -13,31 +13,35 @@
 namespace Itsup\Api\Model;
 
 use Itsup\Api\Annotation\Transform;
+use Itsup\Api\Model\AdZone\Accounting;
+use Itsup\Api\Model\AdZone\AdZoneCampaign;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
  * @method int getId()
  * @method Account getAccount()
- * @method string getStatus()
  * @method Contact getContact()
+ * @method string getName()
  * @method string getHosting()
  * @method string getType()
  * @method int getWidth()
  * @method int getHeight()
- * @method string getDisplay()
+ * @method string getStatus()
  * @method Campaign getDefaultCampaign()
+ * @method string getDisplay()
  * @method Account\ExternalStatisticsProvider getExternalStatisticsProvider()
  * @method string getExternalStatisticsId()
  * @method string getExternalStatisticsIdComplement()
  * @method string getExternalStatisticsOptions()
  * @method \DateTime getDateCreated()
- * @method \DateTime getDateUpdated()
  * @method User getCreatedBy()
+ * @method \DateTime getDateUpdated()
  * @method User getUpdatedBy()
- * @method string getAccounting()
- * @method string getCampaigns()
- * @method string getNotes()
+ * @method array|AdZone\Accounting[] getAccounting()
+ * @method array|AdZone\AdZoneCampaign[] getCampaigns()
+ * @method array|Tag[] getTags()
+ * @method array|Note[] getNotes()
  */
 class AdZone extends AbstractModel
 {
@@ -58,23 +62,6 @@ class AdZone extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Contact")
      */
     public $contact;
-    /**
-     * @var Campaign
-     * @Transform("class", class="Itsup\Api\Model\Campaign")
-     */
-    public $defaultCampaign;
-
-    /**
-     * @var User
-     * @Transform("class", class="Itsup\Api\Model\User")
-     */
-    public $createdBy;
-
-    /**
-     * @var User
-     * @Transform("class", class="Itsup\Api\Model\User")
-     */
-    public $updatedBy;
 
     /**
      * @var string
@@ -114,10 +101,22 @@ class AdZone extends AbstractModel
     public $display;
 
     /**
-     * @var int
-     * @Transform("int")
+     * @var Campaign
+     * @Transform("class", class="Itsup\Api\Model\Campaign")
      */
-    public $externalStatisticsId;
+    public $defaultCampaign;
+
+    /**
+     * @var User
+     * @Transform("class", class="Itsup\Api\Model\User")
+     */
+    public $createdBy;
+
+    /**
+     * @var User
+     * @Transform("class", class="Itsup\Api\Model\User")
+     */
+    public $updatedBy;
 
     /**
      * @var Account\ExternalStatisticsProvider
@@ -126,12 +125,18 @@ class AdZone extends AbstractModel
     public $externalStatisticsProvider;
 
     /**
+     * @var int
+     * @Transform("int")
+     */
+    public $externalStatisticsId;
+
+    /**
      * @var string
      */
     public $externalStatisticsIdComplement;
 
     /**
-     * @var string
+     * @var array
      */
     public $externalStatisticsOptions;
 
@@ -146,4 +151,28 @@ class AdZone extends AbstractModel
      * @Transform("date")
      */
     public $dateUpdated;
+
+    /**
+     * @var Adzone\Accounting[]
+     * @Transform("class", class="Itsup\Api\Model\AdZone\Accounting", collection=true)
+     */
+    public $accounting;
+
+    /**
+     * @var Adzone\AdZoneCampaign[]
+     * @Transform("class", class="Itsup\Api\Model\AdZone\AdZoneCampaign", collection=true)
+     */
+    public $campaigns;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\Tag", collection=true)
+     */
+    public $tags;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\Note", collection=true)
+     */
+    public $notes;
 }

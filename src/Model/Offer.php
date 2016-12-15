@@ -24,6 +24,8 @@ use Itsup\Api\Annotation\Transform;
  * @method string getPayoutType()
  * @method string getStatisticUrl()
  * @method string getStatus()
+ * @method array getTags()
+ * @method array getNotes()
  */
 class Offer extends AbstractModel
 {
@@ -74,4 +76,16 @@ class Offer extends AbstractModel
      * @var string
      */
     public $status;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\Tag", collection=true)
+     */
+    public $tags;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\Note", collection=true)
+     */
+    public $notes;
 }

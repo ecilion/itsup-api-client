@@ -10,7 +10,7 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Model\Metrics\Browser;
+namespace Itsup\Api\Model\Metrics;
 
 use Itsup\Api\Annotation\Transform;
 use Itsup\Api\Model\AbstractModel;
