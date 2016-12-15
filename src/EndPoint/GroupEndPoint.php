@@ -23,11 +23,4 @@ class GroupEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Group';
-
-    /**
-     * The API URI without the first "/".
-     *
-     * @var string
-     */
-    protected $route = 'group';
 }

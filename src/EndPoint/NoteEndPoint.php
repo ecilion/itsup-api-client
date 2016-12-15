@@ -25,9 +25,11 @@ class NoteEndPoint extends AbstractEntityEndPoint
     protected $model = 'Note';
 
     /**
-     * The API URI without the first "/".
+     * Creative properties that should not be send to the api.
      *
-     * @var string
+     * @var string[]
      */
-    protected $route = 'note';
+    protected $propertiesNotToBeSend = [
+        'date',
+    ];
 }

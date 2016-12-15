@@ -23,11 +23,4 @@ class ContactEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Campaign';
-
-    /**
-     * The API URI without the first "/".
-     *
-     * @var string
-     */
-    protected $route = 'contact';
 }

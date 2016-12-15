@@ -25,18 +25,14 @@ class AdZoneEndPoint extends AbstractEntityEndPoint
     protected $model = 'AdZone';
 
     /**
-     * The API URI without the first "/".
-     *
-     * @var string
-     */
-    protected $route = 'adzone';
-
-    /**
      * Creative properties that should not be send to the api.
      *
      * @var string[]
      */
     protected $propertiesNotToBeSend = [
         'dateCreated',
+        'createdBy',
+        'dateUpdated',
+        'updatedBy',
     ];
 }

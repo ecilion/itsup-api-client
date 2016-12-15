@@ -23,11 +23,4 @@ class EventEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Event';
-
-    /**
-     * The API URI without the first "/".
-     *
-     * @var string
-     */
-    protected $route = 'event';
 }

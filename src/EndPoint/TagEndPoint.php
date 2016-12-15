@@ -15,7 +15,7 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class OfferEndPoint extends AbstractEntityEndPoint
+class TagEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.
@@ -23,11 +23,4 @@ class OfferEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Tag';
-
-    /**
-     * The API URI without the first "/".
-     *
-     * @var string
-     */
-    protected $route = 'tag';
 }

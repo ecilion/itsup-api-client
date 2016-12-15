@@ -23,11 +23,4 @@ class OfferEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Offer';
-
-    /**
-     * The API URI without the first "/".
-     *
-     * @var string
-     */
-    protected $route = 'offer';
 }
