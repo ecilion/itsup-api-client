@@ -52,4 +52,5 @@ class Event extends AbstractModel
      * @Transform("int")
      */
     public $value;
+
 }

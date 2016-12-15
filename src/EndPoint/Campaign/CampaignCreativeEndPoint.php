@@ -30,4 +30,5 @@ class CampaignCreativeEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'campaign/creative';
+
 }

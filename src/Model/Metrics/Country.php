@@ -26,7 +26,6 @@ use Itsup\Api\Model\AbstractModel;
  * @method string getRegion()
  * @method string getSubRegion()
  * @method int getPosition()
- *
  */
 class Country extends AbstractModel
 {

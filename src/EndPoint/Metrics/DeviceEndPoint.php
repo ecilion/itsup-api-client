@@ -30,4 +30,5 @@ class DeviceEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'metrics/device';
+
 }

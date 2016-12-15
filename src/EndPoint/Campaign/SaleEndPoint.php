@@ -30,4 +30,5 @@ class SaleEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'campaign/sale';
+
 }

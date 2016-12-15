@@ -30,4 +30,5 @@ class InternetServiceProviderEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'metrics/isp';
+
 }

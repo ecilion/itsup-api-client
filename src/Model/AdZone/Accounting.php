@@ -10,7 +10,7 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\Model\Account;
+namespace Itsup\Api\Model\AdZone;
 
 use Itsup\Api\Annotation\Transform;
 use Itsup\Api\Model\AbstractModel;
