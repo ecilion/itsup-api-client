@@ -10,7 +10,9 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\EndPoint;
+namespace Itsup\Api\EndPoint\Campaign;
+
+use Itsup\Api\EndPoint\AbstractEntityEndPoint;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
