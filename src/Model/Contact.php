@@ -27,9 +27,9 @@ use Itsup\Api\Annotation\Transform;
  * @method string getCompany()
  * @method string getCountry()
  * @method string getWebsiteUrl()
- * @method bool isPublisher()
- * @method bool isBroker()
- * @method bool isAdvertiser()
+ * @method bool getPublisher()
+ * @method bool getBroker()
+ * @method bool getAdvertiser()
  */
 class Contact extends AbstractModel
 {
@@ -103,4 +103,28 @@ class Contact extends AbstractModel
      * @Transform("bool")
      */
     public $advertiser;
+
+    /**
+     * @return bool
+     */
+    public function isPublisher(): bool
+    {
+        return $this->publisher;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isBroker(): bool
+    {
+        return $this->broker;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAdvertiser(): bool
+    {
+        return $this->advertiser;
+    }
 }

@@ -42,9 +42,10 @@ use Itsup\Api\Annotation\Transform;
  * @method array|Campaign\CampaignCreative[] getCreatives()
  * @method array|Campaign\Limit[] getLimits()
  * @method array|Campaign\Sale[] getSales()
- * @method bool isKeepAlive()
+ * @method bool getKeepAlive()
  * @method array|Note[] getNotes()
  * @method array|Tag[] getTags()
+ * @method array|User[] getFollowers()
  */
 class Campaign extends AbstractModel
 {
@@ -86,7 +87,7 @@ class Campaign extends AbstractModel
      * @var Campaign
      * @Transform("class", class="Itsup\Api\Model\Campaign")
      */
-    public $fallbackCampaignId;
+    public $fallbackCampaign;
 
     /**
      * @var Event
@@ -210,4 +211,18 @@ class Campaign extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Note", collection=true)
      */
     public $notes;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\User", collection=true)
+     */
+    public $followers;
+
+    /**
+     * @return bool
+     */
+    public function isKeepAlive(): bool
+    {
+        return $this->keepAlive;
+    }
 }

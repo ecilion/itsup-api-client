@@ -25,12 +25,25 @@ class CampaignEndPoint extends AbstractTagEndPoint
     protected $model = 'Campaign';
 
     /**
-     * Creative properties that should not be send to the api.
+     * Campaign properties that should not be send to the api.
      *
      * @var string[]
      */
     protected $propertiesNotToBeSend = [
         'dateCreated',
-        'tags',
+        'createdBy',
+        'dateUpdated',
+        'updatedBy',
+        'followers',
+        'notes',
+        'creatives',
+        'limits',
+        'sales',
+        'browsers',
+        'devices',
+        'countries',
+        'internetServiceProviders',
+        'languages',
+        'operatingSystems',
     ];
 }
