@@ -17,19 +17,19 @@ use Itsup\Api\EndPoint\AbstractEntityEndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class CountryEndPoint extends AbstractEntityEndPoint
+class LanguageEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.
      *
      * @var string
      */
-    protected $model = 'Country';
+    protected $model = 'Language';
 
     /**
      * The API URI without the first "/".
      *
      * @var string
      */
-    protected $route = 'metrics/country';
+    protected $route = 'metrics/language';
 }
