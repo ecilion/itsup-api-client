@@ -23,4 +23,13 @@ class GroupEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Group';
+
+    /**
+     * Group properties that should not be send to the api.
+     *
+     * @var string[]
+     */
+    protected $propertiesNotToBeSend = [
+        'adZones',
+    ];
 }

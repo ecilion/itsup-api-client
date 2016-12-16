@@ -23,4 +23,14 @@ class UserEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'User';
+
+    /**
+     * User properties that should not be send to the api.
+     *
+     * @var string[]
+     */
+    protected $propertiesNotToBeSend = [
+        'apiKey',
+        'salt',
+    ];
 }

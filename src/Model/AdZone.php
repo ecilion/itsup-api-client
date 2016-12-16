@@ -40,6 +40,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array|AdZone\AdZoneCampaign[] getCampaigns()
  * @method array|Tag[] getTags()
  * @method array|Note[] getNotes()
+ * @method array|User[] getFollowers()
  */
 class AdZone extends AbstractModel
 {
@@ -105,18 +106,6 @@ class AdZone extends AbstractModel
     public $defaultCampaign;
 
     /**
-     * @var User
-     * @Transform("class", class="Itsup\Api\Model\User")
-     */
-    public $createdBy;
-
-    /**
-     * @var User
-     * @Transform("class", class="Itsup\Api\Model\User")
-     */
-    public $updatedBy;
-
-    /**
      * @var Account\ExternalStatisticsProvider
      * @Transform("class", class="Itsup\Api\Model\Account\ExternalStatisticsProvider")
      */
@@ -143,6 +132,18 @@ class AdZone extends AbstractModel
      * @Transform("date")
      */
     public $dateCreated;
+
+    /**
+     * @var User
+     * @Transform("class", class="Itsup\Api\Model\User")
+     */
+    public $createdBy;
+
+    /**
+     * @var User
+     * @Transform("class", class="Itsup\Api\Model\User")
+     */
+    public $updatedBy;
 
     /**
      * @var \DateTime
@@ -173,4 +174,10 @@ class AdZone extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Note", collection=true)
      */
     public $notes;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\User", collection=true)
+     */
+    public $followers;
 }

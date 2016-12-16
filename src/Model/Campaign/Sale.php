@@ -25,7 +25,7 @@ use Itsup\Api\Model\Campaign;
  * @method string getType()
  * @method \DateTime getFrom()
  * @method \DateTime getTo()
- * @method bool isExpire()
+ * @method bool getExpire()
  * @method float getPrice()
  */
 class Sale extends AbstractModel
