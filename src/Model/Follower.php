@@ -13,7 +13,7 @@
 namespace Itsup\Api\Model;
 
 /**
- * @inheritdoc
+ * {@inheritdoc}
  */
 class Follower extends User
 {
