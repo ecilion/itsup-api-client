@@ -11,11 +11,14 @@
  */
 
 namespace Itsup\Api\EndPoint;
+use Doctrine\Common\Collections\ArrayCollection;
+use Itsup\Api\Model\Campaign;
+use Itsup\Api\Model\AbstractModel;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class CampaignEndPoint extends AbstractTagEndPoint
+class CampaignEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.
@@ -46,4 +49,49 @@ class CampaignEndPoint extends AbstractTagEndPoint
         'languages',
         'operatingSystems',
     ];
+
+    /**
+     * @param Campaign $campaign
+     * @param ArrayCollection $countries
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function setCountry(Campaign $campaign, ArrayCollection $countries)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$campaign->getId().'/country',
+            $this->formatObjectToPost($countries, true)
+        );
+    }
+
+    /**
+     * @param Campaign $campaign
+     * @param ArrayCollection $isps
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function setInternetServiceProvider(Campaign $campaign, ArrayCollection $isps)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$campaign->getId().'/isp',
+            $this->formatObjectToPost($isps, true)
+        );
+    }
+
+    /**
+     * @param Campaign $campaign
+     * @param ArrayCollection $oses
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function setOperatingSystem(Campaign $campaign, ArrayCollection $oses)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$campaign->getId().'/os',
+            $this->formatObjectToPost($oses, true)
+        );
+    }
 }
