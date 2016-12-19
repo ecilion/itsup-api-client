@@ -314,12 +314,32 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     /**
      * Format object to a format usable by the API POST call.
      *
-     * @param AbstractModel $object
-     * @param bool|string   $formName
+     * @param mixed       $object
+     * @param bool|string $formName
      *
      * @return array
      */
-    public function formatObjectToPost(AbstractModel $object, bool $formName = false): array
+    public function formatObjectToPost($object, bool $formName = false): array
+    {
+        if ($object instanceof ArrayCollection) {
+            $return = [];
+            foreach ($object as $obj) {
+                $return[] = $this->formatObject($obj, false);
+            }
+
+            return $formName ? ['collection' => $return] : $return;
+        }
+
+        return $this->formatObject($object, $formName);
+    }
+
+    /**
+     * @param AbstractModel $object
+     * @param bool          $formName
+     *
+     * @return array
+     */
+    public function formatObject(AbstractModel $object, bool $formName = false): array
     {
         $return = [];
         $array  = [];
@@ -332,7 +352,6 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
                     $value === false ||
                     !empty($value)
                 ) &&
-                !is_null($value) &&
                 $key !== 'extraData'
             ) {
                 if (in_array($key, $this->propertiesToSendAsExtra)) {
@@ -343,9 +362,9 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
                 $array[$key] =
                     is_object($value) ?
                         (
-                            in_array($key, self::$propertiesToConvertToId) && !empty($value->getId()) ?
-                                $value->getId() :
-                                $this->formatObjectToPost($value)
+                        in_array($key, self::$propertiesToConvertToId) && !empty($value->getId()) ?
+                            $value->getId() :
+                            $this->formatObjectToPost($value)
                         ) :
                         $value;
             }

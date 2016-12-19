@@ -15,6 +15,7 @@ namespace Itsup\Api;
 use Cache\Adapter\Common\AbstractCachePool;
 use Cache\Taggable\TaggablePoolInterface;
 use Doctrine\Common\Annotations\AnnotationRegistry;
+use Doctrine\Common\Collections\ArrayCollection;
 use GuzzleHttp\Client as BaseClient;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -186,6 +187,17 @@ class Client extends BaseClient
      */
     public function call(string $endPointClass, string $function, array $arguments = [])
     {
+        if (count($arguments) === 2) {
+            if ($arguments[1] instanceof ArrayCollection) {
+                $secondaryModel = get_class($arguments[1]->first());
+            } else {
+                $secondaryModel = get_class($arguments[1]);
+            }
+            $tmp            = explode('\\', $secondaryModel);
+            $secondaryModel = array_pop($tmp);
+            $function .= $secondaryModel;
+        }
+
         $endPoint = new $endPointClass($this);
         if (!method_exists($endPoint, $function)) {
             throw new \Exception("Method \"{$function}\" does not exists for endPoint \"{$endPointClass}\"");
@@ -205,7 +217,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function requestAsync(string $method, string $uri = '', array $options = [])
+    public function requestAsync($method, string $uri = '', array $options = [])
     {
         $options['headers'] = isset($options['headers']) ? $options['headers'] : [];
         if (!isset($options['headers']['Authorization'])) {
