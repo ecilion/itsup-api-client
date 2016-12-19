@@ -314,8 +314,8 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     /**
      * Format object to a format usable by the API POST call.
      *
-     * @param mixed        $object
-     * @param bool|string  $formName
+     * @param mixed       $object
+     * @param bool|string $formName
      *
      * @return array
      */

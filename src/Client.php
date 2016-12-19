@@ -12,10 +12,10 @@
 
 namespace Itsup\Api;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Cache\Adapter\Common\AbstractCachePool;
 use Cache\Taggable\TaggablePoolInterface;
 use Doctrine\Common\Annotations\AnnotationRegistry;
+use Doctrine\Common\Collections\ArrayCollection;
 use GuzzleHttp\Client as BaseClient;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -188,7 +188,7 @@ class Client extends BaseClient
     public function call(string $endPointClass, string $function, array $arguments = [])
     {
         if (count($arguments) === 2) {
-            if ($arguments[1] instanceOf ArrayCollection) {
+            if ($arguments[1] instanceof ArrayCollection) {
                 $secondaryModel = get_class($arguments[1]->first());
             } else {
                 $secondaryModel = get_class($arguments[1]);
