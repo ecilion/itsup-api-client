@@ -342,10 +342,6 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     public function formatObject(AbstractModel $object, bool $formName = false): array
     {
-        if ((new \ReflectionClass($object))->getShortName() == 'Follower') {
-            $object = new User((array) $object);
-        }
-
         $return = [];
         $array  = [];
         $keys   = $object->getClassVars();
