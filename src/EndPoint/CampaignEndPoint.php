@@ -11,6 +11,7 @@
  */
 
 namespace Itsup\Api\EndPoint;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Itsup\Api\Model\AbstractModel;
 use Itsup\Api\Model\Campaign;
@@ -51,7 +52,7 @@ class CampaignEndPoint extends AbstractEntityEndPoint
     ];
 
     /**
-     * @param Campaign $campaign
+     * @param Campaign        $campaign
      * @param ArrayCollection $countries
      *
      * @return array|bool|AbstractModel
