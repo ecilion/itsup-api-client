@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use GuzzleHttp\Psr7\Response;
 use Itsup\Api\Exception\ApiException;
 use Itsup\Api\Model\AbstractModel;
+use Itsup\Api\Model\User;
 use Itsup\Api\Transformer\AnnotationTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
@@ -341,6 +342,10 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     public function formatObject(AbstractModel $object, bool $formName = false): array
     {
+        if ((new \ReflectionClass($object))->getShortName() == 'Follower') {
+            $object = new User((array) $object);
+        }
+
         $return = [];
         $array  = [];
         $keys   = $object->getClassVars();

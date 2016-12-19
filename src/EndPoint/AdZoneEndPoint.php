@@ -15,7 +15,7 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class AdZoneEndPoint extends AbstractTagEndPoint
+class AdZoneEndPoint extends AbstractNoteFollowerEndPoint
 {
     /**
      * The model name.

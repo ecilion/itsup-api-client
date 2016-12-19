@@ -10,17 +10,11 @@
  * @license     No License (Proprietary)
  */
 
-namespace Itsup\Api\EndPoint;
+namespace Itsup\Api\Model;
 
 /**
- * @author Cyril LEGRAND <cyril@sctr.net>
+ * @inheritdoc
  */
-class OfferEndPoint extends AbstractNoteEndPoint
+class Follower extends User
 {
-    /**
-     * The model name.
-     *
-     * @var string
-     */
-    protected $model = 'Offer';
 }

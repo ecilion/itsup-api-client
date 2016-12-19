@@ -19,7 +19,7 @@ use Itsup\Api\Model\Campaign;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class CampaignEndPoint extends AbstractEntityEndPoint
+class CampaignEndPoint extends AbstractNoteFollowerEndPoint
 {
     /**
      * The model name.
