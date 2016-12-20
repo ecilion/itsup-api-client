@@ -384,4 +384,28 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
 
         return $return;
     }
+
+    /**
+     * Format object to a format with array of ids
+     *
+     * @param ArrayCollection $objects
+     * @param string          $field
+     * @param bool            $formName
+     *
+     * @return array
+     */
+    public function formatObjectToIds(ArrayCollection $objects, bool $formName = false, string $field = 'id'): array
+    {
+        $return = [];
+
+        foreach ($objects as $object) {
+            $functionName = 'get'.ucfirst($field);
+
+            if (!empty($object->$functionName())) {
+                $return[] = $object->$functionName();
+            }
+        }
+
+        return $formName ? ['collection' => $return] : $return;
+    }
 }
