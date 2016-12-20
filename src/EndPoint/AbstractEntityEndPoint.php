@@ -386,7 +386,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     }
 
     /**
-     * Format object to a format with array of ids
+     * Format object to a format with array of ids.
      *
      * @param ArrayCollection $objects
      * @param string          $field
