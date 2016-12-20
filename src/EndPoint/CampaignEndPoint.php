@@ -19,7 +19,7 @@ use Itsup\Api\Model\Campaign;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class CampaignEndPoint extends AbstractEntityEndPoint
+class CampaignEndPoint extends AbstractNoteFollowerEndPoint
 {
     /**
      * The model name.
@@ -62,7 +62,7 @@ class CampaignEndPoint extends AbstractEntityEndPoint
         return $this->handleRequest(
             'POST',
             $this->getRoute().'/'.$campaign->getId().'/country',
-            $this->formatObjectToPost($countries, true)
+            $this->formatObjectToIds($countries, true)
         );
     }
 
@@ -77,7 +77,7 @@ class CampaignEndPoint extends AbstractEntityEndPoint
         return $this->handleRequest(
             'POST',
             $this->getRoute().'/'.$campaign->getId().'/isp',
-            $this->formatObjectToPost($isps, true)
+            $this->formatObjectToIds($isps, true)
         );
     }
 
@@ -92,7 +92,7 @@ class CampaignEndPoint extends AbstractEntityEndPoint
         return $this->handleRequest(
             'POST',
             $this->getRoute().'/'.$campaign->getId().'/os',
-            $this->formatObjectToPost($oses, true)
+            $this->formatObjectToIds($oses, true)
         );
     }
 }

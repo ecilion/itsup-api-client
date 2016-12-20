@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use GuzzleHttp\Psr7\Response;
 use Itsup\Api\Exception\ApiException;
 use Itsup\Api\Model\AbstractModel;
+use Itsup\Api\Model\User;
 use Itsup\Api\Transformer\AnnotationTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
@@ -382,5 +383,29 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         }
 
         return $return;
+    }
+
+    /**
+     * Format object to a format with array of ids.
+     *
+     * @param ArrayCollection $objects
+     * @param string          $field
+     * @param bool            $formName
+     *
+     * @return array
+     */
+    public function formatObjectToIds(ArrayCollection $objects, bool $formName = false, string $field = 'id'): array
+    {
+        $return = [];
+
+        foreach ($objects as $object) {
+            $functionName = 'get'.ucfirst($field);
+
+            if (!empty($object->$functionName())) {
+                $return[] = $object->$functionName();
+            }
+        }
+
+        return $formName ? ['collection' => $return] : $return;
     }
 }

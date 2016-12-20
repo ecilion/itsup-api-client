@@ -217,7 +217,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function requestAsync($method, string $uri = '', array $options = [])
+    public function requestAsync($method, $uri = '', array $options = [])
     {
         $options['headers'] = isset($options['headers']) ? $options['headers'] : [];
         if (!isset($options['headers']['Authorization'])) {
