@@ -121,7 +121,7 @@ class CampaignEndPoint extends AbstractNoteFollowerEndPoint
     {
         return $this->handleRequest(
             'POST',
-            $this->getRoute().'/'.$campaign->getId().'/browsers',
+            $this->getRoute().'/'.$campaign->getId().'/devices',
             $this->formatObjectToIds($devices, true)
         );
     }
@@ -136,7 +136,7 @@ class CampaignEndPoint extends AbstractNoteFollowerEndPoint
     {
         return $this->handleRequest(
             'POST',
-            $this->getRoute().'/'.$campaign->getId().'/browsers',
+            $this->getRoute().'/'.$campaign->getId().'/languages',
             $this->formatObjectToIds($languages, true)
         );
     }
