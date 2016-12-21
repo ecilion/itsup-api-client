@@ -95,4 +95,49 @@ class CampaignEndPoint extends AbstractNoteFollowerEndPoint
             $this->formatObjectToIds($oses, true)
         );
     }
+
+    /**
+     * @param Campaign        $campaign
+     * @param ArrayCollection $browsers
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function setBrowser(Campaign $campaign, ArrayCollection $browsers)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$campaign->getId().'/browser',
+            $this->formatObjectToIds($browsers, true)
+        );
+    }
+
+    /**
+     * @param Campaign        $campaign
+     * @param ArrayCollection $devices
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function setDevice(Campaign $campaign, ArrayCollection $devices)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$campaign->getId().'/device',
+            $this->formatObjectToIds($devices, true)
+        );
+    }
+
+    /**
+     * @param Campaign        $campaign
+     * @param ArrayCollection $languages
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function setLanguage(Campaign $campaign, ArrayCollection $languages)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$campaign->getId().'/language',
+            $this->formatObjectToIds($languages, true)
+        );
+    }
 }
