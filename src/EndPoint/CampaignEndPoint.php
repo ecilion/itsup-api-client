@@ -140,4 +140,5 @@ class CampaignEndPoint extends AbstractNoteFollowerEndPoint
             $this->formatObjectToIds($languages, true)
         );
     }
+
 }
