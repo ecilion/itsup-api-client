@@ -1,6 +1,6 @@
 {
     "name":              "itsup/itsup-api-client",
-    "description":       "Guzzle Client for api.bang.com",
+    "description":       "Guzzle Client for api.itsup.com",
     "type":              "library",
     "require":           {
         "guzzlehttp/guzzle":           "^6.0",
