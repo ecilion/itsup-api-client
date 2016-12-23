@@ -163,7 +163,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function __call(string $function, array $arguments = [])
+    public function __call($function, $arguments = [])
     {
         $modelClass = get_class($arguments[0]);
         $endPoint   = '\\'.str_replace('Model', 'EndPoint', $modelClass).'EndPoint';
