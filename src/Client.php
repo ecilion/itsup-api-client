@@ -214,6 +214,7 @@ class Client extends BaseClient
         if (count($arguments) === 2) {
             return $endPoint->$function($arguments[0], $arguments[1]);
         }
+
         return $endPoint->$function($arguments[0]);
     }
 
