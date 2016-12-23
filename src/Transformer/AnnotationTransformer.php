@@ -170,9 +170,9 @@ class AnnotationTransformer extends TransformerAbstract
      * @param array  $data
      * @param string $model
      *
-     * @return array
+     * @return array|object
      */
-    private function transformItem(array $data, string $model): array
+    private function transformItem(array $data, string $model)
     {
         $transformer = new self($this->manager, $this->cacheDir, $model);
 

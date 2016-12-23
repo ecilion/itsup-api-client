@@ -27,7 +27,7 @@ abstract class AbstractModel
      *
      * @param array $content
      */
-    public function __construct(array $content)
+    public function __construct($content = [])
     {
         foreach ($content as $key => $value) {
             $key = lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $key))));

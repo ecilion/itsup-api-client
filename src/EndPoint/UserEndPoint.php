@@ -12,6 +12,8 @@
 
 namespace Itsup\Api\EndPoint;
 
+use Itsup\Api\Model\User;
+
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
@@ -30,7 +32,21 @@ class UserEndPoint extends AbstractEntityEndPoint
      * @var string[]
      */
     protected $propertiesNotToBeSend = [
-        'apiKey',
         'salt',
     ];
+
+    /**
+     * @param $emailOrUsername
+     *
+     * @return User
+     */
+    public function login($emailOrUsername)
+    {
+        $user = $this->getByUsername($emailOrUsername);
+        if (false === $user && filter_var($emailOrUsername, FILTER_VALIDATE_EMAIL)) {
+            $user = $this->getByEmail($emailOrUsername);
+        }
+
+        return $user;
+    }
 }
