@@ -28,6 +28,17 @@ use Itsup\Api\Annotation\Transform;
  * @method int getSize()
  * @method \DateTime getDateCreated()
  * @method array|Tag[] getTags()
+ * @method setId(int $id)
+ * @method setAccount(Account $account)
+ * @method setStatus(string $status)
+ * @method setName(string $name)
+ * @method setType(string $type)
+ * @method setCode(string $code)
+ * @method setWidth(int $width)
+ * @method setHeight(int $height)
+ * @method setSize(int $size)
+ * @method setDateCreated(\DateTime $dateCreated)
+ * @method setTags(array|Tag[] $tags)
  */
 class Creative extends AbstractModel
 {

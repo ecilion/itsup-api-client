@@ -20,6 +20,8 @@ use Itsup\Api\Model\AbstractModel;
  *
  * @method int getId()
  * @method string getName()
+ * @method setId(int $id)
+ * @method setName(string $name)
  */
 class Device extends AbstractModel
 {

@@ -25,6 +25,13 @@ use Itsup\Api\Model\AbstractModel;
  * @method string getRegion()
  * @method string getSubRegion()
  * @method int getPosition()
+ * @method setId(int $id)
+ * @method setName(string $name)
+ * @method setOfficialName(string $officialName)
+ * @method setCountryCode3(string $countryCode3)
+ * @method setRegion(string $region)
+ * @method setSubRegion(string $subRegion)
+ * @method setPosition(int $position)
  */
 class Country extends AbstractModel
 {
