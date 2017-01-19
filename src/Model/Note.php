@@ -21,7 +21,6 @@ use Itsup\Api\Annotation\Transform;
  * @method User getUser()
  * @method string getText()
  * @method \DateTime getDate()
- *
  * @method setId(int $id)
  * @method setUser(User $user)
  * @method setText(String $text)

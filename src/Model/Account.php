@@ -34,7 +34,6 @@ use Itsup\Api\Annotation\Transform;
  * @method array getPricing()
  * @method array getBilling()
  * @method array getExternalStatisticsProviders()
- *
  * @method setId(int $id)
  * @method setType(string $type)
  * @method setName(string $name)

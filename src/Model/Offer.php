@@ -26,7 +26,6 @@ use Itsup\Api\Annotation\Transform;
  * @method string getStatus()
  * @method array getTags()
  * @method array getNotes()
- *
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setContact(Contact $contact)

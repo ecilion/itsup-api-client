@@ -25,7 +25,6 @@ use Itsup\Api\Model\Campaign;
  * @method int getWeight()
  * @method string getStatus()
  * @method int getImpressionsLimit()
- *
  * @method setAdZone(AdZone $adZone)
  * @method setCampaign(Campaign $campaign)
  * @method setWeight(int $weight)

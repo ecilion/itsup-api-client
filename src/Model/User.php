@@ -30,7 +30,6 @@ use Itsup\Api\Annotation\Transform;
  * @method string getTimezone()
  * @method string getApiKey()
  * @method bool getEnabled()
- *
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setEmail(string $email)

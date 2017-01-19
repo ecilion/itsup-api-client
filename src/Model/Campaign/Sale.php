@@ -27,7 +27,6 @@ use Itsup\Api\Model\Campaign;
  * @method \DateTime getTo()
  * @method bool getExpire()
  * @method float getPrice()
- *
  * @method setId(int $id)
  * @method setCampaign(Campaign $campaign)
  * @method setLimit(array|Limit $limit)

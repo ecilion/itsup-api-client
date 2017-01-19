@@ -25,7 +25,6 @@ use Itsup\Api\Model\AdZone;
  * @method \DateTime getTo()
  * @method string getType()
  * @method float getCost()
- *
  * @method setId(int $id)
  * @method setAdZone(AdZone $adZone)
  * @method setFrom(\DateTime $from)

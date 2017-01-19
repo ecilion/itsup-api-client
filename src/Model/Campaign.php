@@ -46,7 +46,6 @@ use Itsup\Api\Annotation\Transform;
  * @method array|Note[] getNotes()
  * @method array|Tag[] getTags()
  * @method array|User[] getFollowers()
- *
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setOffer(Offer $offer)

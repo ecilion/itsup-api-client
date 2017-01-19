@@ -25,7 +25,6 @@ use Itsup\Api\Model\Account;
  * @method int getClicks()
  * @method int getEvents()
  * @method float getPrice()
- *
  * @method setAccount(Account $Account)
  * @method setDate(\DateTime $date)
  * @method setImpressions(int $impressions)

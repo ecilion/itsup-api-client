@@ -30,7 +30,6 @@ use Itsup\Api\Annotation\Transform;
  * @method bool getPublisher()
  * @method bool getBroker()
  * @method bool getAdvertiser()
- *
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setUser(User $user)

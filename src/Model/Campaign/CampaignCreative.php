@@ -25,7 +25,6 @@ use Itsup\Api\Model\Creative;
  * @method int getWeight()
  * @method string getStatus()
  * @method string getUrl()
- *
  * @method setCampaign(Campaign $campaign)
  * @method setCreative(Creative $creative)
  * @method setWeight(int $weight)

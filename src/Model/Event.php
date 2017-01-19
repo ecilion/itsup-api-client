@@ -22,7 +22,6 @@ use Itsup\Api\Annotation\Transform;
  * @method string getName()
  * @method string getType()
  * @method int getValue()
- *
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setName(string $name)

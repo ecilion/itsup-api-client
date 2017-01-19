@@ -25,7 +25,6 @@ use Itsup\Api\Model\AbstractModel;
  * @method string getRegion()
  * @method string getSubRegion()
  * @method int getPosition()
- *
  * @method setId(int $id)
  * @method setName(string $name)
  * @method setOfficialName(string $officialName)

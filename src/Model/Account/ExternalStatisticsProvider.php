@@ -26,7 +26,6 @@ use Itsup\Api\Model\Account;
  * @method string getUsername()
  * @method string getPassword()
  * @method bool getValid()
- *
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setName(string $name)

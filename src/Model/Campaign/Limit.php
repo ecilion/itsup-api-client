@@ -27,7 +27,6 @@ use Itsup\Api\Model\Campaign;
  * @method int getClicks()
  * @method \DateTime getDateReached()
  * @method string getTypeReached()
- *
  * @method setId(int $id)
  * @method setCampaign(Campaign $campaign)
  * @method setFrom(\DateTime $from)

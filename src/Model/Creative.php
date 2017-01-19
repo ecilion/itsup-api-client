@@ -28,7 +28,6 @@ use Itsup\Api\Annotation\Transform;
  * @method int getSize()
  * @method \DateTime getDateCreated()
  * @method array|Tag[] getTags()
- *
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setStatus(string $status)

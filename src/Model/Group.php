@@ -21,7 +21,6 @@ use Itsup\Api\Annotation\Transform;
  * @method Account getAccount()
  * @method string getName()
  * @method array|AdZone[] getAdZones()
- *
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setName(string $name)
