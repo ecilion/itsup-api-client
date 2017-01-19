@@ -30,6 +30,20 @@ use Itsup\Api\Annotation\Transform;
  * @method string getTimezone()
  * @method string getApiKey()
  * @method bool getEnabled()
+ *
+ * @method setId(int $id)
+ * @method setAccount(Account $account)
+ * @method setEmail(string $email)
+ * @method setUsername(string $username)
+ * @method setPassword(string $password)
+ * @method setSalt(string $salt)
+ * @method setRoles(array $roles)
+ * @method setName(string $name)
+ * @method setPhone(string $phone)
+ * @method setSkype(string $skype)
+ * @method setTimezone(string $timezone)
+ * @method setApiKey(string $apiKey)
+ * @method setEnabled(bool $enabled)
  */
 class User extends AbstractModel
 {

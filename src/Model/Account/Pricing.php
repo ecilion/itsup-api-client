@@ -24,6 +24,12 @@ use Itsup\Api\Model\Account;
  * @method \DateTime getFrom()
  * @method \DateTime getTo()
  * @method bool getCpm()
+ *
+ * @method setId(int $id)
+ * @method setAccount(Account $account)
+ * @method setFrom(\DateTime $from)
+ * @method setTo(\DateTime $to)
+ * @method setCpm(bool $cpm)
  */
 class Pricing extends AbstractModel
 {

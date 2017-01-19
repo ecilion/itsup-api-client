@@ -26,6 +26,14 @@ use Itsup\Api\Model\Account;
  * @method bool getSsl()
  * @method bool getDefaultDomain()
  * @method bool getInstalled()
+ *
+ * @method setId(int $id)
+ * @method setAccount(Account $Account)
+ * @method setType(string $type)
+ * @method setName(string $name)
+ * @method setSsl(bool $ssl)
+ * @method setDefaultDomain(bool $defaultDomain)
+ * @method setInstalled(bool $installed)
  */
 class Domain extends AbstractModel
 {

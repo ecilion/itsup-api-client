@@ -26,6 +26,16 @@ use Itsup\Api\Annotation\Transform;
  * @method string getStatus()
  * @method array getTags()
  * @method array getNotes()
+ *
+ * @method setId(int $id)
+ * @method setAccount(Account $account)
+ * @method setContact(Contact $contact)
+ * @method setName(string $name)
+ * @method setPayoutType(string $payoutType)
+ * @method setStatisticUrl(string $statisticsUrl)
+ * @method setStatus(string $status)
+ * @method setTags(array $tags)
+ * @method setNotes(array $notes)
  */
 class Offer extends AbstractModel
 {

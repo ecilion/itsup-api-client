@@ -34,6 +34,24 @@ use Itsup\Api\Annotation\Transform;
  * @method array getPricing()
  * @method array getBilling()
  * @method array getExternalStatisticsProviders()
+ *
+ * @method setId(int $id)
+ * @method setType(string $type)
+ * @method setName(string $name)
+ * @method setAddress(string $address)
+ * @method setAddressComplement(string $addressComplement)
+ * @method setCity(string $city)
+ * @method setZipCode(string $zipCode)
+ * @method setState(string $state)
+ * @method setCountry(string $country)
+ * @method setTaxId(string $taxId)
+ * @method setWebSiteUrl(string $websiteUrl)
+ * @method setInvoiceFrom(string $invoiceFrom)
+ * @method setEnabled(bool $enabled)
+ * @method setDomains(array $domains)
+ * @method setPricing(array $pricing)
+ * @method setBilling(array $billing)
+ * @method setExternalStatisticsProviders(array $externalStatisticsProviders)
  */
 class Account extends AbstractModel
 {

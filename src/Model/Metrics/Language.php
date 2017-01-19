@@ -21,6 +21,10 @@ use Itsup\Api\Model\AbstractModel;
  * @method int getId()
  * @method string getName()
  * @method int getPosition()
+ *
+ * @method setId(int $id)
+ * @method setName(string $name)
+ * @method setPosition(int $position)
  */
 class Language extends AbstractModel
 {

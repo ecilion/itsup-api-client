@@ -25,6 +25,12 @@ use Itsup\Api\Model\Creative;
  * @method int getWeight()
  * @method string getStatus()
  * @method string getUrl()
+ *
+ * @method setCampaign(Campaign $campaign)
+ * @method setCreative(Creative $creative)
+ * @method setWeight(int $weight)
+ * @method setStatus(string $status)
+ * @method setUrl(string $url)
  */
 class CampaignCreative extends AbstractModel
 {
