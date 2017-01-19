@@ -65,7 +65,6 @@ use Itsup\Api\Annotation\Transform;
  * @method setTags(array|Tag[] $tags)
  * @method setNotes(array|Note[] $notes)
  * @method setFollowers(array|User[] $followers)
- *
  */
 class AdZone extends AbstractModel
 {
