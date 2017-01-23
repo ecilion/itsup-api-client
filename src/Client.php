@@ -154,6 +154,16 @@ class Client extends BaseClient
     }
 
     /**
+     * @param string $name
+     *
+     * @return mixed
+     */
+    public function __get($name)
+    {
+        return $this->getEndPoint($name);
+    }
+
+    /**
      * Catch any function call and send it to the right EndPoint.
      *
      * @param string $function
@@ -163,7 +173,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function __call(string $function, array $arguments = [])
+    public function __call($function, $arguments = [])
     {
         $modelClass = get_class($arguments[0]);
         $endPoint   = '\\'.str_replace('Model', 'EndPoint', $modelClass).'EndPoint';
@@ -197,17 +207,43 @@ class Client extends BaseClient
             $secondaryModel = array_pop($tmp);
             $function .= $secondaryModel;
         }
-
         $endPoint = new $endPointClass($this);
         if (!method_exists($endPoint, $function)) {
             throw new \Exception("Method \"{$function}\" does not exists for endPoint \"{$endPointClass}\"");
         }
-
         if (count($arguments) === 2) {
             return $endPoint->$function($arguments[0], $arguments[1]);
         }
 
         return $endPoint->$function($arguments[0]);
+    }
+
+    /**
+     * @param string $name
+     *
+     * @throws \Exception
+     *
+     * @return mixed
+     */
+    public function getEndPoint($name)
+    {
+        $name  = !empty($this->directory) ? ucfirst($this->directory).'\\'.ucfirst($name) : ucfirst($name);
+        $class = '\Itsup\Api\EndPoint\\'.$name.'Endpoint';
+        if (!class_exists($class)) {
+            throw new \Exception("EndPoint \"{$name}\" does not exist. ");
+        }
+
+        return new $class($this);
+    }
+
+    /**
+     * @param $endpoint
+     *
+     * @return mixed
+     */
+    public function __invoke($endpoint)
+    {
+        return $this->getEndPoint($endpoint);
     }
 
     /**

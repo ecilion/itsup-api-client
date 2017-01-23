@@ -27,6 +27,14 @@ use Itsup\Api\Model\Campaign;
  * @method int getClicks()
  * @method \DateTime getDateReached()
  * @method string getTypeReached()
+ * @method setId(int $id)
+ * @method setCampaign(Campaign $campaign)
+ * @method setFrom(\DateTime $from)
+ * @method setTo(\DateTime $to)
+ * @method setImpressions(int $impressions)
+ * @method setClicks(int $clicks)
+ * @method setDateReached(\DateTime $dateReached)
+ * @method setTypeReached(string $typeReached)
  */
 class Limit extends AbstractModel
 {

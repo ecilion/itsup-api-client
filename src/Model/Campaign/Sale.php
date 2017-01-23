@@ -27,6 +27,14 @@ use Itsup\Api\Model\Campaign;
  * @method \DateTime getTo()
  * @method bool getExpire()
  * @method float getPrice()
+ * @method setId(int $id)
+ * @method setCampaign(Campaign $campaign)
+ * @method setLimit(array|Limit $limit)
+ * @method setType(string $type)
+ * @method setFrom(\DateTime $from)
+ * @method setTo(\DateTime $to)
+ * @method setExpire(bool $expire)
+ * @method setPrice(float $price)
  */
 class Sale extends AbstractModel
 {

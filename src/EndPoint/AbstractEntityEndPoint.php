@@ -42,6 +42,11 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     protected $route;
 
     /**
+     * @var bool
+     */
+    protected $camelCase = false;
+
+    /**
      * Model properties that should be send as extra to the API.
      *
      * @var string[]
@@ -88,6 +93,34 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         $route = !empty($this->route) ? $this->route : strtolower($this->model);
 
         return '/'.$route;
+    }
+
+    /**
+     * Returns an object from the given parameters.
+     *
+     * @param array $parameters
+     *
+     * @throws \Exception
+     *
+     * @return bool|AbstractModel|array
+     */
+    public function get(array $parameters = [])
+    {
+        return $this->handleRequest('GET', $this->getRoute(), $parameters);
+    }
+
+    /**
+     * Returns an object from the given parameters.
+     *
+     * @param array $parameters
+     *
+     * @throws \Exception
+     *
+     * @return bool|AbstractModel|array
+     */
+    public function getAll(array $parameters = [])
+    {
+        return $this->handleRequest('GET', $this->getRoute().'/all', $parameters, 'model', true);
     }
 
     /**
@@ -173,6 +206,44 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
             'DELETE',
             $this->getRoute().'/'.$object->getId()
         );
+    }
+
+    /**
+     * Catch for `getBy` methods. Allow use of `getBy{ParameterName1}And{ParameterName2}And...`.
+     *
+     * @param string $name
+     * @param array  $arguments
+     *
+     * @return bool|AbstractModel
+     */
+    public function __call($name, array $arguments)
+    {
+        if (strpos($name, 'getBy') === 0 || strpos($name, 'getAllBy') === 0) {
+            $function = 'get';
+            if (strpos($name, 'getAllBy') === 0) {
+                $function   = 'getAll';
+                $properties = str_replace('getAllBy', '', $name);
+            } else {
+                $properties = str_replace('getBy', '', $name);
+            }
+            $properties   = explode('And', $properties);
+            $idToGet      = [];
+            $nbProperties = count($properties);
+            for ($i = 0; $i < $nbProperties; $i++) {
+                if ($this->camelCase === true) {
+                    $property = lcfirst($properties[$i]);
+                } else {
+                    $property = preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $properties[$i]);
+                    $property = strtolower($property);
+                }
+                $idToGet[$property] = $arguments[$i];
+            }
+            if (count($idToGet) > 0) {
+                return $this->$function($idToGet);
+            }
+        }
+
+        throw new \BadMethodCallException();
     }
 
     /**

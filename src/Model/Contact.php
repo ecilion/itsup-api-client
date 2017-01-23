@@ -30,6 +30,19 @@ use Itsup\Api\Annotation\Transform;
  * @method bool getPublisher()
  * @method bool getBroker()
  * @method bool getAdvertiser()
+ * @method setId(int $id)
+ * @method setAccount(Account $account)
+ * @method setUser(User $user)
+ * @method setName(string $name)
+ * @method setEmail(string $email)
+ * @method setSkype(string $skype)
+ * @method setPhone(string $phone)
+ * @method setCompany(string $company)
+ * @method setCountry(string $country)
+ * @method setWebsiteUrl(string $websiteUrl)
+ * @method setPublisher(bool $publisher)
+ * @method setBroker(bool $broker)
+ * @method setAdvertiser(bool $advertiser)
  */
 class Contact extends AbstractModel
 {

@@ -13,29 +13,24 @@
 $loader = require_once __DIR__.'/../../autoload.php';
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Sctr\Bang\Api\Client;
+use Itsup\Api\Client;
 
 AnnotationRegistry::registerLoader([$loader, 'loadClass']);
 
 $client = new Client(
     [
         'scheme'    => 'http',
-        'host'      => 'dev.api.bang.com',
-        'api_key'   => 'NTA1MjE2MmU2Y2I0MGU0MjZjZTMxM2FhNzI1MGY5NDBmZWYxMDUwZg==',
+        'host'      => 'dev.api.itsup.com',
+        'api_key'   => 'YzEzYmMyOTlmMjU5ZDM4MGFmN2I5OWE3MTdmZDNhNTQzMGEzZjEyMw==',
         'cache_dir' => __DIR__.'/cache/',
     ]
 );
 
-var_dump($client->geoip->getCity('76.167.242.198'));
+$user = new \Itsup\Api\Model\User();
+$user->setUsername('apiAdmin');
 
-/*
-//$customer = $client->customer->getByCustomerId(374001);
-$customer = $client->customer->getByEmailOrUsername('hightime2211@gmail.com');
+var_dump($client->user->find($user));
 
-$password = strip_tags(strtolower(trim('rav740x')));
-$password = substr(str_replace(' ', '', str_replace('"', '', str_replace("\n", '', $password))), 0, 128);
+var_dump($client->user->getByUsername('apiAdmin'));
 
-$password = sha1($password);
-
-dump($customer, $customer->getPassword(), $password);
-*/
+var_dump($client->user->login('apiAdmin'));
