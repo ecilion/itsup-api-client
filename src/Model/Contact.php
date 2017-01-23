@@ -107,7 +107,7 @@ class Contact extends AbstractModel
     /**
      * @return bool
      */
-    public function isPublisher(): bool
+    public function isPublisher()
     {
         return $this->publisher;
     }
@@ -115,7 +115,7 @@ class Contact extends AbstractModel
     /**
      * @return bool
      */
-    public function isBroker(): bool
+    public function isBroker()
     {
         return $this->broker;
     }
@@ -123,7 +123,7 @@ class Contact extends AbstractModel
     /**
      * @return bool
      */
-    public function isAdvertiser(): bool
+    public function isAdvertiser()
     {
         return $this->advertiser;
     }

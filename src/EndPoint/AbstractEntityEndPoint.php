@@ -140,7 +140,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         return $this->handleRequest(
             'POST',
             $this->getRoute(),
-            $this->formatObjectToPost($object)
+            $this->formatObjectToPost($object, true)
         );
     }
 
@@ -156,7 +156,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         return $this->handleRequest(
             'POST',
             $this->getRoute().'/update',
-            $this->formatObjectToPost($object)
+            $this->formatObjectToPost($object, true)
         );
     }
 
@@ -375,7 +375,8 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
             return $array;
         }
 
-        $formKey          = array_pop(explode('\\', get_class($object)));
+        $class            = explode('\\', get_class($object));
+        $formKey          = array_pop($class);
         $return[$formKey] = $array;
         $extra            = $object->getExtraData();
         if (count($extra) > 0) {
