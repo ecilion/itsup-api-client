@@ -58,7 +58,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      *
      * @var string[]
      */
-    protected $propertiesNotToBeSend = [];
+    protected $propertiesNotToBeSent = [];
 
     /**
      * Model Properties that are objects but only their ids should be send to the API.
@@ -420,7 +420,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         foreach ($keys as $key) {
             $value = $object->get($key);
             if (
-                !in_array($key, $this->propertiesNotToBeSend) &&
+                !in_array($key, $this->propertiesNotToBeSent) &&
                 (
                     $value === false ||
                     !empty($value)

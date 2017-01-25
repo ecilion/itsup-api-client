@@ -31,7 +31,7 @@ class UserEndPoint extends AbstractEntityEndPoint
      *
      * @var string[]
      */
-    protected $propertiesNotToBeSend = [
+    protected $propertiesNotToBeSent = [
         'salt',
     ];
 

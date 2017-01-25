@@ -29,7 +29,7 @@ class CreativeEndPoint extends AbstractEntityEndPoint
      *
      * @var string[]
      */
-    protected $propertiesNotToBeSend = [
+    protected $propertiesNotToBeSent = [
         'dateCreated',
     ];
 }

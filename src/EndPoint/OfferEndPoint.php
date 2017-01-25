@@ -29,7 +29,7 @@ class OfferEndPoint extends AbstractNoteEndPoint
      *
      * @var string[]
      */
-    protected $propertiesNotToBeSend = [
+    protected $propertiesNotToBeSent = [
         'campaigns',
     ];
 }
