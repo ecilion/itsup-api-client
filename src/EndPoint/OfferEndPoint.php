@@ -23,4 +23,13 @@ class OfferEndPoint extends AbstractNoteEndPoint
      * @var string
      */
     protected $model = 'Offer';
+
+    /**
+     * Offer properties that should not be send to the api.
+     *
+     * @var string[]
+     */
+    protected $propertiesNotToBeSend = [
+        'campaigns',
+    ];
 }
