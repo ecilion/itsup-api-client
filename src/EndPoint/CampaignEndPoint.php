@@ -33,7 +33,7 @@ class CampaignEndPoint extends AbstractNoteFollowerEndPoint
      *
      * @var string[]
      */
-    protected $propertiesNotToBeSend = [
+    protected $propertiesNotToBeSent = [
         'dateCreated',
         'createdBy',
         'dateUpdated',
