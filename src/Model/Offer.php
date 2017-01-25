@@ -26,6 +26,7 @@ use Itsup\Api\Annotation\Transform;
  * @method string getStatus()
  * @method array getTags()
  * @method array getNotes()
+ * @method array getCampaigns()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setContact(Contact $contact)
@@ -35,6 +36,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setStatus(string $status)
  * @method setTags(array $tags)
  * @method setNotes(array $notes)
+ * @method setCampaigns(Campaign $campaigns)
  */
 class Offer extends AbstractModel
 {
@@ -97,4 +99,10 @@ class Offer extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Note", collection=true)
      */
     public $notes;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\Campaign", collection=true)
+     */
+    public $campaigns;
 }
