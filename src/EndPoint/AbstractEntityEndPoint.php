@@ -286,19 +286,21 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
                     ['code' => 500, 'type' => 'internal_exception', 'message' => 'Internal Server Error'];
             throw new ApiException($exceptionParameters);
         }
+        if ($response->getStatusCode() === 204) {
+            return true;
+        }
         if ($returnType === 'model') {
             return $this->buildObject($this->getModel(), $response, $collection);
-        } else {
-            if ($returnType !== 'array') {
-                $class = '\Itsup\Api\Model\\'.$returnType;
-                if (class_exists($class)) {
-                    return $this->buildObject($returnType, $response, $collection);
-                }
-            }
-            $result = json_decode($response->getBody()->getContents(), true);
-
-            return isset($result['content']) ? $result['content'] : [];
         }
+        if ($returnType !== 'array') {
+            $class = '\Itsup\Api\Model\\'.$returnType;
+            if (class_exists($class)) {
+                return $this->buildObject($returnType, $response, $collection);
+            }
+        }
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        return isset($result['content']) ? $result['content'] : [];
     }
 
     /**
