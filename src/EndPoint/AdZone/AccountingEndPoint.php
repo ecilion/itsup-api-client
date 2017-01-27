@@ -24,7 +24,7 @@ class AccountingEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Accounting';
+    protected $model = 'AdZone\Accounting';
 
     /**
      * The API URI without the first "/".

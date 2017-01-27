@@ -24,7 +24,7 @@ class OperatingSystemEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'OperatingSystem';
+    protected $model = 'Metrics\OperatingSystem';
 
     /**
      * The API URI without the first "/".
