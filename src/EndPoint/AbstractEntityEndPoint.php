@@ -13,6 +13,7 @@
 namespace Itsup\Api\EndPoint;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use Itsup\Api\Exception\ApiException;
 use Itsup\Api\Model\AbstractModel;
@@ -270,13 +271,17 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         try {
             $response = $this->cacheRequest($method, $route, $parameters);
         } catch (\Exception $exception) {
-            throw new ApiException(
-                [
-                    'code'    => $exception->getCode(),
-                    'type'    => get_class($exception),
-                    'message' => $exception->getMessage(),
-                ]
-            );
+            if ($exception instanceof ServerException) {
+                $response = $exception->getResponse();
+            } else {
+                throw new ApiException(
+                    [
+                        'code'    => $exception->getCode(),
+                        'type'    => get_class($exception),
+                        'message' => $exception->getMessage(),
+                    ]
+                );
+            }
         }
         if ($response->getStatusCode() >= 400) {
             $result              = json_decode($response->getBody()->getContents(), true);

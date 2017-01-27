@@ -38,7 +38,7 @@ class ApiException extends \Exception
             }
         }
 
-        parent::__construct($this->type, $this->getCode());
+        parent::__construct($this->message, $this->getCode());
     }
 
     /**
