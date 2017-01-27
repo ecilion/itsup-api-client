@@ -24,7 +24,7 @@ class AdZoneCampaignEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'AdZoneCampaign';
+    protected $model = 'AdZone\AdZoneCampaign';
 
     /**
      * The API URI without the first "/".

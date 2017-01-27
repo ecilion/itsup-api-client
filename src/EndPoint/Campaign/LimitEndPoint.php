@@ -24,7 +24,7 @@ class LimitEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Limit';
+    protected $model = 'Campaign\Limit';
 
     /**
      * The API URI without the first "/".

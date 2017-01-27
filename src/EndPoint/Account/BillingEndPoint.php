@@ -24,7 +24,7 @@ class BillingEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Billing';
+    protected $model = 'Account\Billing';
 
     /**
      * The API URI without the first "/".
