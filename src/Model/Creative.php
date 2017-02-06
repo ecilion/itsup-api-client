@@ -105,4 +105,10 @@ class Creative extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Tag", collection=true)
      */
     public $tags;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\Note", collection=true)
+     */
+    public $notes;
 }
