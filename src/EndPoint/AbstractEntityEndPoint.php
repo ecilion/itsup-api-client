@@ -451,18 +451,14 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         }
 
         if ($formName === false) {
-            return $array;
+            return array_merge($array, $object->getExtraData());
         }
 
         $class            = explode('\\', get_class($object));
         $formKey          = array_pop($class);
         $return[$formKey] = $array;
-        $extra            = $object->getExtraData();
-        if (count($extra) > 0) {
-            $return = array_merge($return, $extra);
-        }
 
-        return $return;
+        return array_merge($return, $object->getExtraData());
     }
 
     /**
