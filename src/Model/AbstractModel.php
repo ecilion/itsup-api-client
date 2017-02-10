@@ -23,11 +23,6 @@ abstract class AbstractModel
     protected $extraData = [];
 
     /**
-     * @var string
-     */
-    protected $context;
-
-    /**
      * AbstractModel constructor.
      *
      * @param array $content
@@ -128,21 +123,5 @@ abstract class AbstractModel
     final public function getClassVars()
     {
         return array_keys(get_class_vars(get_class($this)));
-    }
-
-    /**
-     * @param string $context
-     */
-    public function setContext($context)
-    {
-        $this->context = $context;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContext()
-    {
-        return $this->context;
     }
 }
