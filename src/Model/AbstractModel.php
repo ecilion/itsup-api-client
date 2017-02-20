@@ -135,7 +135,7 @@ abstract class AbstractModel
      *
      * @return mixed
      */
-    public function addProperty(string $property, mixed $value)
+    public function addProperty(string $property, $value)
     {
         if (empty($this->$property)) {
             $this->$property = [];
