@@ -19,23 +19,15 @@ use Itsup\Api\Model\Account;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
- * @method int getId()
  * @method Account getAccount()
  * @method \DateTime getDate()
  * @method bool getCpm()
- * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setDate(\DateTime $date)
  * @method setCpm(bool $cpm)
  */
 class Pricing extends AbstractModel
 {
-    /**
-     * @var int
-     * @Transform("int")
-     */
-    public $id;
-
     /**
      * @var Account
      * @Transform("class", class="Itsup\Api\Model\Account")
