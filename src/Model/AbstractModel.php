@@ -72,6 +72,13 @@ abstract class AbstractModel
             return $this->extraData[$key] = $arguments[0];
         }
 
+        if (strpos($name, 'add') === 0) {
+            $key = lcfirst(str_replace('add', '', $name));
+            if (property_exists($this, $key)) {
+                return $this->addProperty($key, $arguments[0]);
+            }
+        }
+
         throw new \BadMethodCallException('Method does not exist: '.$name);
     }
 
@@ -118,6 +125,24 @@ abstract class AbstractModel
     public function getExtra($key)
     {
         return array_key_exists($key, $this->extraData) ? $this->extraData[$key] : null;
+    }
+
+    /**
+     * Add a new entry to an array.
+     *
+     * @param string $property
+     * @param mixed  $value
+     *
+     * @return mixed
+     */
+    public function addProperty(string $property, mixed $value)
+    {
+        if (empty($this->$property)) {
+            $this->$property = [];
+        }
+        $this->$property[] = $value;
+
+        return $value;
     }
 
     final public function getClassVars()
