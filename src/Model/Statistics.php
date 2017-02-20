@@ -160,7 +160,7 @@ class Statistics extends AbstractModel
                 $this->sortBy[] = $value;
             }
         } else {
-            $value = explode(',', $value);
+            $value          = explode(',', $value);
             $this->sortBy[] = [$value[0] => $value[1] ?? 'ASC'];
         }
     }
