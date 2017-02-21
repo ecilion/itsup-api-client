@@ -24,7 +24,7 @@ class LanguageEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Language';
+    protected $model = 'Metrics\Language';
 
     /**
      * The API URI without the first "/".

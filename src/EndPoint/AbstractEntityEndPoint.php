@@ -13,6 +13,7 @@
 namespace Itsup\Api\EndPoint;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use Itsup\Api\Exception\ApiException;
 use Itsup\Api\Model\AbstractModel;
@@ -58,7 +59,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      *
      * @var string[]
      */
-    protected $propertiesNotToBeSend = [];
+    protected $propertiesNotToBeSent = [];
 
     /**
      * Model Properties that are objects but only their ids should be send to the API.
@@ -94,34 +95,6 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         $route = !empty($this->route) ? $this->route : strtolower($this->model);
 
         return '/'.$route;
-    }
-
-    /**
-     * Returns an object from the given parameters.
-     *
-     * @param array $parameters
-     *
-     * @throws \Exception
-     *
-     * @return bool|AbstractModel|array
-     */
-    public function get(array $parameters = [])
-    {
-        return $this->handleRequest('GET', $this->getRoute(), $parameters);
-    }
-
-    /**
-     * Returns an object from the given parameters.
-     *
-     * @param array $parameters
-     *
-     * @throws \Exception
-     *
-     * @return bool|AbstractModel|array
-     */
-    public function getAll(array $parameters = [])
-    {
-        return $this->handleRequest('GET', $this->getRoute().'/all', $parameters, 'model', true);
     }
 
     /**
@@ -219,31 +192,6 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     public function __call($name, array $arguments)
     {
-        if (strpos($name, 'getBy') === 0 || strpos($name, 'getAllBy') === 0) {
-            $function = 'get';
-            if (strpos($name, 'getAllBy') === 0) {
-                $function   = 'getAll';
-                $properties = str_replace('getAllBy', '', $name);
-            } else {
-                $properties = str_replace('getBy', '', $name);
-            }
-            $properties   = explode('And', $properties);
-            $idToGet      = [];
-            $nbProperties = count($properties);
-            for ($i = 0; $i < $nbProperties; $i++) {
-                if ($this->camelCase === true) {
-                    $property = lcfirst($properties[$i]);
-                } else {
-                    $property = preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $properties[$i]);
-                    $property = strtolower($property);
-                }
-                $idToGet[$property] = $arguments[$i];
-            }
-            if (count($idToGet) > 0) {
-                return $this->$function($idToGet);
-            }
-        }
-
         throw new \BadMethodCallException();
     }
 
@@ -270,13 +218,17 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         try {
             $response = $this->cacheRequest($method, $route, $parameters);
         } catch (\Exception $exception) {
-            throw new ApiException(
-                [
-                    'code'    => $exception->getCode(),
-                    'type'    => get_class($exception),
-                    'message' => $exception->getMessage(),
-                ]
-            );
+            if ($exception instanceof ServerException) {
+                $response = $exception->getResponse();
+            } else {
+                throw new ApiException(
+                    [
+                        'code'    => $exception->getCode(),
+                        'type'    => get_class($exception),
+                        'message' => $exception->getMessage(),
+                    ]
+                );
+            }
         }
         if ($response->getStatusCode() >= 400) {
             $result              = json_decode($response->getBody()->getContents(), true);
@@ -286,19 +238,21 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
                     ['code' => 500, 'type' => 'internal_exception', 'message' => 'Internal Server Error'];
             throw new ApiException($exceptionParameters);
         }
+        if ($response->getStatusCode() === 204) {
+            return true;
+        }
         if ($returnType === 'model') {
             return $this->buildObject($this->getModel(), $response, $collection);
-        } else {
-            if ($returnType !== 'array') {
-                $class = '\Itsup\Api\Model\\'.$returnType;
-                if (class_exists($class)) {
-                    return $this->buildObject($returnType, $response, $collection);
-                }
-            }
-            $result = json_decode($response->getBody()->getContents(), true);
-
-            return isset($result['content']) ? $result['content'] : [];
         }
+        if ($returnType !== 'array') {
+            $class = '\Itsup\Api\Model\\'.$returnType;
+            if (class_exists($class)) {
+                return $this->buildObject($returnType, $response, $collection);
+            }
+        }
+        $result = json_decode($response->getBody()->getContents(), true);
+
+        return isset($result['content']) ? $result['content'] : [];
     }
 
     /**
@@ -420,7 +374,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         foreach ($keys as $key) {
             $value = $object->get($key);
             if (
-                !in_array($key, $this->propertiesNotToBeSend) &&
+                !in_array($key, $this->propertiesNotToBeSent) &&
                 (
                     $value === false ||
                     !empty($value)
@@ -444,18 +398,14 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         }
 
         if ($formName === false) {
-            return $array;
+            return array_merge($array, $object->getExtraData());
         }
 
         $class            = explode('\\', get_class($object));
         $formKey          = array_pop($class);
         $return[$formKey] = $array;
-        $extra            = $object->getExtraData();
-        if (count($extra) > 0) {
-            $return = array_merge($return, $extra);
-        }
 
-        return $return;
+        return array_merge($return, $object->getExtraData());
     }
 
     /**

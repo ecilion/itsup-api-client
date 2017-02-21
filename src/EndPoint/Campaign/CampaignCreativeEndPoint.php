@@ -24,7 +24,7 @@ class CampaignCreativeEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'CampaignCreative';
+    protected $model = 'Campaign\CampaignCreative';
 
     /**
      * The API URI without the first "/".

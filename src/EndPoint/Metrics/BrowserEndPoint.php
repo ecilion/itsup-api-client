@@ -24,7 +24,7 @@ class BrowserEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Browser';
+    protected $model = 'Metrics\Browser';
 
     /**
      * The API URI without the first "/".

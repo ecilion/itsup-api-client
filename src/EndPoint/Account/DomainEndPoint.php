@@ -24,7 +24,7 @@ class DomainEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Domain';
+    protected $model = 'Account\Domain';
 
     /**
      * The API URI without the first "/".

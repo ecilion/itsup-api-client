@@ -24,7 +24,7 @@ class SaleEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Sale';
+    protected $model = 'Campaign\Sale';
 
     /**
      * The API URI without the first "/".

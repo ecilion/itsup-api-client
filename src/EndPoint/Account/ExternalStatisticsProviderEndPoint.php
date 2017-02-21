@@ -24,7 +24,7 @@ class ExternalStatisticsProviderEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'ExternalStatisticsProvider';
+    protected $model = 'Account\ExternalStatisticsProvider';
 
     /**
      * The API URI without the first "/".

@@ -24,7 +24,7 @@ class InternetServiceProviderEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'InternetServiceProvider';
+    protected $model = 'Metrics\InternetServiceProvider';
 
     /**
      * The API URI without the first "/".

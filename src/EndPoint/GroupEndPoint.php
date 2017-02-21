@@ -29,7 +29,7 @@ class GroupEndPoint extends AbstractEntityEndPoint
      *
      * @var string[]
      */
-    protected $propertiesNotToBeSend = [
+    protected $propertiesNotToBeSent = [
         'adZones',
     ];
 }
