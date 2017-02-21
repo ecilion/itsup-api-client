@@ -52,7 +52,7 @@ class Sale extends AbstractModel
 
     /**
      * @var Limit
-     * @Transform("class", class="Itsup\Api\Model\Campaign/Limit")
+     * @Transform("class", class="Itsup\Api\Model\Campaign\Limit")
      */
     public $limit;
 
