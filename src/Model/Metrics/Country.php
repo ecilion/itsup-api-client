@@ -18,14 +18,14 @@ use Itsup\Api\Model\AbstractModel;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
- * @method int getId()
+ * @method string getId()
  * @method string getName()
  * @method string getOfficialName()
  * @method string getCountryCode3()
  * @method string getRegion()
  * @method string getSubRegion()
  * @method int getPosition()
- * @method setId(int $id)
+ * @method setId(string $id)
  * @method setName(string $name)
  * @method setOfficialName(string $officialName)
  * @method setCountryCode3(string $countryCode3)
@@ -36,8 +36,8 @@ use Itsup\Api\Model\AbstractModel;
 class Country extends AbstractModel
 {
     /**
-     * @var int
-     * @Transform("int")
+     * @var string
+     * @Transform("string")
      */
     public $id;
 

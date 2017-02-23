@@ -140,4 +140,32 @@ class CampaignEndPoint extends AbstractNoteFollowerEndPoint
             $this->formatObjectToIds($languages, true)
         );
     }
+
+    /**
+     * @param ArrayCollection $limits
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function setLimit(ArrayCollection $limits)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/limit',
+            $this->formatObjectToIds($limits, true)
+        );
+    }
+
+    /**
+     * @param ArrayCollection $sales
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function setSale(ArrayCollection $sales)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/sale',
+            $this->formatObjectToIds($sales, true)
+        );
+    }
 }
