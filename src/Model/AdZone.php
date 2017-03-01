@@ -41,6 +41,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array|Tag[] getTags()
  * @method array|Note[] getNotes()
  * @method array|User[] getFollowers()
+ * @method array|Group[] getGroups()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setContact(Contact $contact)
@@ -65,6 +66,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setTags(array|Tag[] $tags)
  * @method setNotes(array|Note[] $notes)
  * @method setFollowers(array|User[] $followers)
+ * @method setGroups(array|Group[] $groups)
  */
 class AdZone extends AbstractModel
 {
