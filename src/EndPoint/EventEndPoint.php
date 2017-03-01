@@ -26,7 +26,6 @@ class EventEndPoint extends AbstractEntityEndPoint
     protected $model = 'Event';
 
     /**
-     *
      * @param string $clickId
      *
      * @return array|bool|AbstractModel
