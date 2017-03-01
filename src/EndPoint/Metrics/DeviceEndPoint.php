@@ -24,7 +24,7 @@ class DeviceEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Browser';
+    protected $model = 'Metrics\Device';
 
     /**
      * The API URI without the first "/".

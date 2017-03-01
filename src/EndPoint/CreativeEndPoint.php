@@ -15,7 +15,7 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
-class CreativeEndPoint extends AbstractEntityEndPoint
+class CreativeEndPoint extends AbstractNoteEndPoint
 {
     /**
      * The model name.
@@ -29,7 +29,7 @@ class CreativeEndPoint extends AbstractEntityEndPoint
      *
      * @var string[]
      */
-    protected $propertiesNotToBeSend = [
+    protected $propertiesNotToBeSent = [
         'dateCreated',
     ];
 }

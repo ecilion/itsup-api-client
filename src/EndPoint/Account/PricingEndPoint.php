@@ -24,7 +24,7 @@ class PricingEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Pricing';
+    protected $model = 'Account\Pricing';
 
     /**
      * The API URI without the first "/".

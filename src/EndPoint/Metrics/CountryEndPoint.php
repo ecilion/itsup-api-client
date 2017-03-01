@@ -24,7 +24,7 @@ class CountryEndPoint extends AbstractEntityEndPoint
      *
      * @var string
      */
-    protected $model = 'Country';
+    protected $model = 'Metrics\Country';
 
     /**
      * The API URI without the first "/".
