@@ -206,4 +206,21 @@ class AdZone extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\User", collection=true)
      */
     public $followers;
+
+    /**
+     * @return AdZone\Accounting|null
+     */
+    public function getLastAccounting()
+    {
+        $lastDate = '0000-00-00';
+        $return   = null;
+        foreach ($this->accounting as $acc) {
+            if ($acc->getFrom()->format('Y-m-d') > $lastDate) {
+                $return   = $acc;
+                $lastDate = $acc->getFrom()->format('Y-m-d');
+            }
+        }
+
+        return $return;
+    }
 }
