@@ -37,7 +37,7 @@ class EventEndPoint extends AbstractEntityEndPoint
             'GET',
             $this->getRoute().'/decrypt/'.$clickId,
             [],
-            'DecryptedClick'
+            'Event\DecryptedClick'
         );
     }
 }
