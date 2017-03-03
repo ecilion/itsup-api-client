@@ -252,6 +252,6 @@ class Campaign extends AbstractModel
      */
     public function isKeepAlive(): bool
     {
-        return $this->keepAlive;
+        return isset($this->keepAlive) ? $this->keepAlive : false;
     }
 }
