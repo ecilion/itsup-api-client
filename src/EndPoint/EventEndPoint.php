@@ -31,12 +31,13 @@ class EventEndPoint extends AbstractEntityEndPoint
      *
      * @return array|bool|AbstractModel
      */
-    public function decryptClick($event, $clickId)
+    public function decryptClick($clickId)
     {
         return $this->handleRequest(
             'GET',
             $this->getRoute().'/decrypt/'.$clickId,
-            $this->formatObjectToPost($event, true)
+            [],
+            'DecryptedClick'
         );
     }
 }
