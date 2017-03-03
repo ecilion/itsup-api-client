@@ -36,7 +36,7 @@ class EventEndPoint extends AbstractEntityEndPoint
         return $this->handleRequest(
             'GET',
             $this->getRoute().'/decrypt/'.$clickId,
-            [],
+            ['context' => 'list'],
             'Event\DecryptedClick'
         );
     }
