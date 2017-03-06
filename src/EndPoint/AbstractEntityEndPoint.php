@@ -71,6 +71,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         'user',
         'adZone',
         'campaign',
+        'limit',
         'contact',
         'creative',
         'offer',
