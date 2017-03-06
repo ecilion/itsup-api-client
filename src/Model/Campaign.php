@@ -35,7 +35,7 @@ use Itsup\Api\Annotation\Transform;
  * @method User getUpdatedBy()
  * @method array|Metrics\Browser[] getBrowsers()
  * @method array|Metrics\Country[] getCountries()
- * @method array|Metrics\Device[] geetDevices()
+ * @method array|Metrics\Device[] getDevices()
  * @method array|Metrics\InternetServiceProvider[] getInternetServiceProviders()
  * @method array|Metrics\Language[] getLanguages()
  * @method array|Metrics\OperatingSystem[] getOperatingSystems()
