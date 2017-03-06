@@ -18,18 +18,17 @@ use Itsup\Api\Model\AbstractModel;
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  *
- * @method int getId()
+ * @method string getId()
  * @method string getName()
  * @method int getPosition()
- * @method setId(int $id)
+ * @method setId(string $id)
  * @method setName(string $name)
  * @method setPosition(int $position)
  */
 class Language extends AbstractModel
 {
     /**
-     * @var int
-     * @Transform("int")
+     * @var string
      */
     public $id;
 
