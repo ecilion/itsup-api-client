@@ -160,7 +160,7 @@ class CampaignEndPoint extends AbstractNoteFollowerEndPoint
      *
      * @return array|bool|AbstractModel
      */
-    public function setSale(ArrayCollection $sales)
+    public function setSale($sales)
     {
         return $this->handleRequest(
             'POST',
