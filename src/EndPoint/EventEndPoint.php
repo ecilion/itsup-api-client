@@ -12,6 +12,8 @@
 
 namespace Itsup\Api\EndPoint;
 
+use Itsup\Api\Model\AbstractModel;
+
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
@@ -23,4 +25,19 @@ class EventEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Event';
+
+    /**
+     * @param string $clickId
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function decryptClick($clickId)
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/decrypt/'.$clickId,
+            ['context' => 'list'],
+            'Event\DecryptedClick'
+        );
+    }
 }

@@ -41,6 +41,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array|Tag[] getTags()
  * @method array|Note[] getNotes()
  * @method array|User[] getFollowers()
+ * @method array|Group[] getGroups()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setContact(Contact $contact)
@@ -65,6 +66,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setTags(array|Tag[] $tags)
  * @method setNotes(array|Note[] $notes)
  * @method setFollowers(array|User[] $followers)
+ * @method setGroups(array|Group[] $groups)
  */
 class AdZone extends AbstractModel
 {
@@ -204,4 +206,21 @@ class AdZone extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\User", collection=true)
      */
     public $followers;
+
+    /**
+     * @return AdZone\Accounting|null
+     */
+    public function getLastAccounting()
+    {
+        $lastDate = '0000-00-00';
+        $return   = null;
+        foreach ($this->accounting as $acc) {
+            if ($acc->getFrom()->format('Y-m-d') > $lastDate) {
+                $return   = $acc;
+                $lastDate = $acc->getFrom()->format('Y-m-d');
+            }
+        }
+
+        return $return;
+    }
 }
