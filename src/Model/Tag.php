@@ -20,9 +20,17 @@ use Itsup\Api\Annotation\Transform;
  * @method int getId()
  * @method Account getAccount()
  * @method string getName()
+ * @method int getNbAdZones()
+ * @method int getNbOffers()
+ * @method int getNbCampaigns()
+ * @method int getNbCreatives()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setName(string $name)
+ * @method setNbAdZones(int $nbAdZones)
+ * @method setOffers(int $nbOffers)
+ * @method setNbCampaigns(int $nbCampaigns)
+ * @method setCreatives(int $nbCreatives)
  */
 class Tag extends AbstractModel
 {
@@ -40,6 +48,31 @@ class Tag extends AbstractModel
 
     /**
      * @var string
+     * @Transform("int")
      */
     public $name;
+
+    /**
+     * @var string
+     * @Transform("int")
+     */
+    protected $nbAdZones;
+
+    /**
+     * @var int
+     * @Transform("int")
+     */
+    protected $nbOffers;
+
+    /**
+     * @var int
+     * @Transform("int")
+     */
+    protected $nbCampaigns;
+
+    /**
+     * @var int
+     * @Transform("int")
+     */
+    protected $nbCreatives;
 }
