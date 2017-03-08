@@ -48,7 +48,6 @@ class Tag extends AbstractModel
 
     /**
      * @var string
-     * @Transform("int")
      */
     public $name;
 
@@ -56,23 +55,23 @@ class Tag extends AbstractModel
      * @var string
      * @Transform("int")
      */
-    protected $nbAdZones;
+    public $nbAdZones;
 
     /**
      * @var int
      * @Transform("int")
      */
-    protected $nbOffers;
+    public $nbOffers;
 
     /**
      * @var int
      * @Transform("int")
      */
-    protected $nbCampaigns;
+    public $nbCampaigns;
 
     /**
      * @var int
      * @Transform("int")
      */
-    protected $nbCreatives;
+    public $nbCreatives;
 }
