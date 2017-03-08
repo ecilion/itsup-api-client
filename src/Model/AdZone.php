@@ -208,6 +208,12 @@ class AdZone extends AbstractModel
     public $followers;
 
     /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\Group", collection=true)
+     */
+    public $groups;
+
+    /**
      * @return AdZone\Accounting|null
      */
     public function getLastAccounting()
