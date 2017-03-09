@@ -11,6 +11,7 @@
  */
 
 namespace Itsup\Api\EndPoint;
+
 use Itsup\Api\Model\AbstractModel;
 use Itsup\Api\Model\AdZone;
 
