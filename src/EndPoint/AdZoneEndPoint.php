@@ -11,6 +11,8 @@
  */
 
 namespace Itsup\Api\EndPoint;
+use Itsup\Api\Model\AbstractModel;
+use Itsup\Api\Model\AdZone;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
@@ -39,4 +41,18 @@ class AdZoneEndPoint extends AbstractNoteFollowerEndPoint
         'campaigns',
         'accounting',
     ];
+
+    /**
+     * @param string $type
+     * @param AdZone $adZone
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function duplicate($adZone, $type)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$adZone->getId().'/duplicate/'.$type
+        );
+    }
 }
