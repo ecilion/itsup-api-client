@@ -12,6 +12,10 @@
 
 namespace Itsup\Api\EndPoint;
 
+use Itsup\Api\Model\AbstractModel;
+use Itsup\Api\Model\AdZone;
+use Itsup\Api\Model\Group;
+
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
@@ -39,4 +43,50 @@ class AdZoneEndPoint extends AbstractNoteFollowerEndPoint
         'campaigns',
         'accounting',
     ];
+
+    /**
+     * @param string $type
+     * @param AdZone $adZone
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function duplicate($adZone, $type)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$adZone->getId().'/duplicate/'.$type
+        );
+    }
+
+    /**
+     * Add a group to an adZone using the API.
+     *
+     * @param AdZone $adZone
+     * @param Group  $group
+     *
+     * @return bool|AdZone
+     */
+    public function addGroup(AdZone $adZone, Group $group)
+    {
+        return $this->handleRequest(
+            'POST',
+            $this->getRoute().'/'.$adZone->getId().'/group/'.$group->getId()
+        );
+    }
+
+    /**
+     * Remove a group from an adZone using the API.
+     *
+     * @param AdZone $adZone
+     * @param Group  $group
+     *
+     * @return bool|AdZone
+     */
+    public function removeGroup(AdZone $adZone, Group $group)
+    {
+        return $this->handleRequest(
+            'DELETE',
+            $this->getRoute().'/'.$adZone->getId().'/group/'.$group->getId()
+        );
+    }
 }
