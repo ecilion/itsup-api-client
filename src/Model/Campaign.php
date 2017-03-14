@@ -183,7 +183,7 @@ class Campaign extends AbstractModel
 
     /**
      * @var Metrics\Country[]
-     * @Transform("class", class="Itsup\Api\Model\Metrics\Browser", collection=true)
+     * @Transform("class", class="Itsup\Api\Model\Metrics\Country", collection=true)
      */
     public $countries;
 
