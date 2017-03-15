@@ -48,7 +48,7 @@ class PricingEndPoint extends AbstractEntityEndPoint
             $this->getRoute(),
             [
                 'account' => $object->getAccount(),
-                'date'    => $object->getDate()
+                'date'    => $object->getDate(),
             ]
         );
     }
