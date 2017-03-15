@@ -46,6 +46,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array|Note[] getNotes()
  * @method array|Tag[] getTags()
  * @method array|User[] getFollowers()
+ * @method array|AdZone\AdZoneCampaign getAdZones()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setOffer(Offer $offer)
@@ -75,6 +76,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setNotes(array|Note[] $notes)
  * @method setTags(array|Tag[] $tags)
  * @method setFollowers(array|User[] $followers)
+ * @method setAdZones(array|AdZone\AdZoneCampaign[] $adZones)
  */
 class Campaign extends AbstractModel
 {
@@ -95,6 +97,12 @@ class Campaign extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Offer")
      */
     public $offer;
+
+    /**
+     * @var AdZone[]
+     * @Transform("class", class="Itsup\Api\Model\AdZone\AdZoneCampaign", collection=true)
+     */
+    public $adZones;
 
     /**
      * @var string
@@ -252,6 +260,6 @@ class Campaign extends AbstractModel
      */
     public function isKeepAlive(): bool
     {
-        return isset($this->keepAlive) ? $this->keepAlive : false;
+        return $this->keepAlive;
     }
 }
