@@ -138,8 +138,8 @@ class AdZone extends AbstractModel
     public $externalStatisticsProvider;
 
     /**
-     * @var int
-     * @Transform("int")
+     * @var string
+     * @Transform("string")
      */
     public $externalStatisticsId;
 
