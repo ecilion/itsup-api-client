@@ -41,13 +41,7 @@ class Pricing extends AbstractModel
     public $date;
 
     /**
-     * @var bool
-     * @Transform("bool")
+     * @var float
      */
     public $cpm;
-
-    public function isCpm(): bool
-    {
-        return $this->cpm;
-    }
 }

@@ -13,6 +13,7 @@
 namespace Itsup\Api\EndPoint\Account;
 
 use Itsup\Api\EndPoint\AbstractEntityEndPoint;
+use Itsup\Api\Model\AbstractModel;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
@@ -32,4 +33,23 @@ class PricingEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $route = 'account/pricing';
+
+    /**
+     * Delete an object using the API.
+     *
+     * @param AbstractModel $object
+     *
+     * @return bool|AbstractModel
+     */
+    public function delete(AbstractModel $object)
+    {
+        return $this->handleRequest(
+            'DELETE',
+            $this->getRoute(),
+            [
+                'account' => $object->getAccount(),
+                'date'    => $object->getDate(),
+            ]
+        );
+    }
 }
