@@ -41,7 +41,7 @@ class Pricing extends AbstractModel
     public $date;
 
     /**
-     * @var double
+     * @var float
      */
     public $cpm;
 }
