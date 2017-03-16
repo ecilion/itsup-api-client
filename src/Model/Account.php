@@ -34,6 +34,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array getPricing()
  * @method array getBilling()
  * @method array getExternalStatisticsProviders()
+ * @method array getAdZones()
  * @method setId(int $id)
  * @method setType(string $type)
  * @method setName(string $name)
@@ -144,4 +145,10 @@ class Account extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Account\ExternalStatisticsProvider", collection=true)
      */
     public $externalStatisticsProviders;
+
+    /**
+     * @var AdZone[]
+     * @Transform("class", class="Itsup\Api\Model\AdZone", collection=true)
+     */
+    public $adZones;
 }
