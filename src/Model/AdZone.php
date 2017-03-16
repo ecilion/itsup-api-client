@@ -31,7 +31,7 @@ use Itsup\Api\Annotation\Transform;
  * @method Account\ExternalStatisticsProvider getExternalStatisticsProvider()
  * @method string getExternalStatisticsId()
  * @method string getExternalStatisticsIdComplement()
- * @method string getExternalStatisticsOptions()
+ * @method array getExternalStatisticsOptions()
  * @method \DateTime getDateCreated()
  * @method User getCreatedBy()
  * @method \DateTime getDateUpdated()
