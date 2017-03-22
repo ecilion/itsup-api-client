@@ -33,7 +33,7 @@ abstract class AbstractNoteEndPoint extends AbstractEntityEndPoint
         return $this->handleRequest(
             'POST',
             $this->getRoute().'/'.$object->getId().'/note',
-            $this->formatObjectToPost($note)
+            $this->formatObjectToPost($note, true)
         );
     }
 
