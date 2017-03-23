@@ -22,6 +22,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
+ *
+ * @method mixed find($object)
+ * @method mixed findAll($object)
+ * @method mixed create($object)
+ * @method mixed update($object)
  */
 class Client extends BaseClient
 {
