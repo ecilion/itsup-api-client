@@ -262,4 +262,20 @@ class Campaign extends AbstractModel
     {
         return $this->keepAlive ? true : false;
     }
+
+    /**
+     * @return Metrics\InternetServiceProvider[]
+     */
+    public function getIsp()
+    {
+        return $this->internetServiceProviders;
+    }
+
+    /**
+     * @return Metrics\OperatingSystem[]
+     */
+    public function getOs()
+    {
+        return $this->operatingSystems;
+    }
 }

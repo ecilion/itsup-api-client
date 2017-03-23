@@ -67,4 +67,20 @@ class Metrics extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Metrics\OperatingSystem", collection=true)
      */
     public $operatingSystems;
+
+    /**
+     * @return Metrics\InternetServiceProvider[]
+     */
+    public function getIsp()
+    {
+        return $this->internetServiceProviders;
+    }
+
+    /**
+     * @return Metrics\OperatingSystem[]
+     */
+    public function getOs()
+    {
+        return $this->operatingSystems;
+    }
 }
