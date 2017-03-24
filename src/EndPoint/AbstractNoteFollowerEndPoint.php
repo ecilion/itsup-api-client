@@ -32,7 +32,8 @@ abstract class AbstractNoteFollowerEndPoint extends AbstractNoteEndPoint
     {
         return $this->handleRequest(
             'POST',
-            $this->getRoute().'/'.$object->getId().'/follower/'.$follower->getId()
+            $this->getRoute().'/'.$object->getId().'/follower/'.$follower->getId(),
+            ['context' => $follower->getContext()]
         );
     }
 
