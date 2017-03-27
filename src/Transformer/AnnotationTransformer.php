@@ -151,6 +151,9 @@ class AnnotationTransformer extends TransformerAbstract
                 return (bool) $value;
             case 'date':
             case 'datetime':
+                if (is_array($value) && isset($value['date'])) {
+                    $value = $value['date'];
+                }
                 $value = (is_numeric($value)) ? date('Y-m-d H:i:s', $value) : $value;
 
                 return new \DateTime($value, $annotation->timezone);
