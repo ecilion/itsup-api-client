@@ -257,6 +257,22 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     }
 
     /**
+     * Convert an Array to an Entity.
+     *
+     * @param AbstractModel $object
+     * @param array         $data
+     *
+     * @return AbstractModel
+     */
+    public function buildEntity(AbstractModel $object, array $data)
+    {
+        $class       = '\Itsup\Api\Model\\'.$this->getModel();
+        $transformer = new AnnotationTransformer($this->manager, $this->client->getCacheDir(), $class);
+
+        return $this->createObject($class, $data, $transformer);
+    }
+
+    /**
      * Transform an API response into a given Model or collection of Model.
      *
      * @param string            $model
