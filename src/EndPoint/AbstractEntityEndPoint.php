@@ -257,7 +257,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     }
 
     /**
-     * Convert an Array to an Entity
+     * Convert an Array to an Entity.
      *
      * @param AbstractModel $object
      * @param array         $data
