@@ -78,6 +78,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         'event',
         'createdBy',
         'updatedBy',
+        'defaultCampaign',
     ];
 
     /**
