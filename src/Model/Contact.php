@@ -30,6 +30,7 @@ use Itsup\Api\Annotation\Transform;
  * @method bool getPublisher()
  * @method bool getBroker()
  * @method bool getAdvertiser()
+ * @method string getComment()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setUser(User $user)
@@ -43,6 +44,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setPublisher(bool $publisher)
  * @method setBroker(bool $broker)
  * @method setAdvertiser(bool $advertiser)
+ * @method setComment(string $comment)
  */
 class Contact extends AbstractModel
 {
@@ -116,6 +118,11 @@ class Contact extends AbstractModel
      * @Transform("bool")
      */
     public $advertiser;
+
+    /**
+     * @var string
+     */
+    public $comment;
 
     /**
      * @return bool
