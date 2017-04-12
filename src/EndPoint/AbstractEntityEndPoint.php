@@ -19,7 +19,6 @@ use Itsup\Api\Exception\ApiException;
 use Itsup\Api\Model\AbstractModel;
 use Itsup\Api\Model\User;
 use Itsup\Api\Transformer\AnnotationTransformer;
-use Itsup\Bundle\AdminBundle\Controller\AbstractController;
 use League\Fractal\Resource\Item;
 use Psr\Http\Message\ResponseInterface;
 
