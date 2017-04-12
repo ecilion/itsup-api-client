@@ -49,4 +49,23 @@ class UserEndPoint extends AbstractEntityEndPoint
 
         return $user;
     }
+
+    /**
+     * Returns all account followers.
+     *
+     * @param array $params
+     *
+     * @throws ApiException
+     *
+     * @return bool|AbstractModel|array
+     */
+    public function listAll($params = [])
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/all',
+            $params,
+            'array'
+        );
+    }
 }
