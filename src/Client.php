@@ -233,7 +233,7 @@ class Client extends BaseClient
     public function getEndPoint($name)
     {
         $name  = !empty($this->directory) ? ucfirst($this->directory).'\\'.ucfirst($name) : ucfirst($name);
-        $class = '\Itsup\Api\EndPoint\\'.$name.'Endpoint';
+        $class = '\Itsup\Api\EndPoint\\'.$name.'EndPoint';
         if (!class_exists($class)) {
             throw new \Exception("EndPoint \"{$name}\" does not exist. ");
         }
