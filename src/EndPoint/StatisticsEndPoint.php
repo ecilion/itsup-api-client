@@ -44,18 +44,22 @@ class StatisticsEndPoint extends AbstractEntityEndPoint
     /**
      * Returns an object from the given parameters.
      *
-     * @param AbstractModel $object
+     * @param AbstractModel|array $params
      *
      * @throws ApiException
      *
      * @return array
      */
-    public function find(AbstractModel $object)
+    public function find($params = [])
     {
+        if ($params instanceof AbstractModel) {
+            $params = $this->formatObjectToPost($params, false);
+        }
+
         return $this->handleRequest(
             'GET',
             $this->getRoute(),
-            $this->formatObjectToPost($object, false),
+            $params,
             'array'
         );
     }

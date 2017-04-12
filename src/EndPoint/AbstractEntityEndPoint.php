@@ -19,6 +19,7 @@ use Itsup\Api\Exception\ApiException;
 use Itsup\Api\Model\AbstractModel;
 use Itsup\Api\Model\User;
 use Itsup\Api\Transformer\AnnotationTransformer;
+use Itsup\Bundle\AdminBundle\Controller\AbstractController;
 use League\Fractal\Resource\Item;
 use Psr\Http\Message\ResponseInterface;
 
@@ -101,36 +102,44 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     /**
      * Returns an object from the given parameters.
      *
-     * @param AbstractModel $object
+     * @param AbstractModel|array $params
      *
      * @throws ApiException
      *
      * @return bool|AbstractModel|array
      */
-    public function find(AbstractModel $object)
+    public function find($params = [])
     {
+        if ($params instanceof AbstractModel) {
+            $params = $this->formatObjectToPost($params, false);
+        }
+
         return $this->handleRequest(
             'GET',
             $this->getRoute(),
-            $this->formatObjectToPost($object, false)
+            $params
         );
     }
 
     /**
      * Returns an object from the given parameters.
      *
-     * @param AbstractModel $object
+     * @param AbstractModel|array $params
      *
      * @throws ApiException
      *
      * @return bool|AbstractModel|array
      */
-    public function findAll(AbstractModel $object)
+    public function findAll($params = [])
     {
+        if ($params instanceof AbstractModel) {
+            $params = $this->formatObjectToPost($params, false);
+        }
+
         return $this->handleRequest(
             'GET',
             $this->getRoute().'/all',
-            $this->formatObjectToPost($object, false),
+            $params,
             'model',
             true
         );
@@ -253,7 +262,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
         }
         $result = json_decode($response->getBody()->getContents(), true);
 
-        return isset($result['content']) ? $result['content'] : [];
+        return $result['content'] ?? [];
     }
 
     /**

@@ -23,4 +23,24 @@ class TagEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Tag';
+
+    /**
+     * Returns all tags.
+     *
+     * @param array $params
+     *
+     * @throws ApiException
+     *
+     * @return bool|AbstractModel|array
+     */
+    public function listAll($params = [])
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/all',
+            $params,
+            'array',
+            true
+        );
+    }
 }
