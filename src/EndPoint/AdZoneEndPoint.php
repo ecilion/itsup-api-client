@@ -89,4 +89,17 @@ class AdZoneEndPoint extends AbstractNoteFollowerEndPoint
             $this->getRoute().'/'.$adZone->getId().'/group/'.$group->getId()
         );
     }
+
+    /**
+     * @return array|bool|AbstractModel
+     */
+    public function findSizes()
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/sizes',
+            [],
+            'array'
+        );
+    }
 }
