@@ -48,20 +48,4 @@ class CreativeEndPoint extends AbstractNoteEndPoint
             'array'
         );
     }
-
-    /**
-     * @param Creative $creative
-     *
-     * @return array|bool|AbstractModel
-     */
-    public function findAllAsArray(Creative $creative)
-    {
-        return $this->handleRequest(
-            'GET',
-            $this->getRoute().'/all',
-            $this->formatObjectToPost($creative, false),
-            'array',
-            true
-        );
-    }
 }
