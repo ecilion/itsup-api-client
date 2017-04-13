@@ -168,4 +168,17 @@ class CampaignEndPoint extends AbstractNoteFollowerEndPoint
             $this->formatObjectToIds($sales, true)
         );
     }
+
+    /**
+     * @return array|bool|AbstractModel
+     */
+    public function findSizes()
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/sizes',
+            [],
+            'array'
+        );
+    }
 }

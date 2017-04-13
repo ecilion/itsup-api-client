@@ -12,6 +12,9 @@
 
 namespace Itsup\Api\EndPoint;
 
+use Itsup\Api\Model\AbstractModel;
+use Itsup\Api\Model\Group;
+
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
@@ -23,4 +26,19 @@ class GroupEndPoint extends AbstractEntityEndPoint
      * @var string
      */
     protected $model = 'Group';
+
+    /**
+     * @param Group $group
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function findAdZones(Group $group)
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/'.$group->getId().'/zones',
+            [],
+            'array'
+        );
+    }
 }
