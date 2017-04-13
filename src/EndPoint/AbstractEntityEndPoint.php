@@ -99,6 +99,20 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
     }
 
     /**
+     * @param AbstractModel|array $params
+     *
+     * @return array
+     */
+    public function formatParams($params)
+    {
+        if ($params instanceof AbstractModel) {
+            return $this->formatObjectToPost($params, false);
+        }
+
+        return $params;
+    }
+
+    /**
      * Returns an object from the given parameters.
      *
      * @param AbstractModel|array $params
@@ -109,14 +123,10 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     public function find($params = [])
     {
-        if ($params instanceof AbstractModel) {
-            $params = $this->formatObjectToPost($params, false);
-        }
-
         return $this->handleRequest(
             'GET',
             $this->getRoute(),
-            $params
+            $this->formatParams($params)
         );
     }
 
@@ -131,14 +141,10 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     public function findArr($params = [])
     {
-        if ($params instanceof AbstractModel) {
-            $params = $this->formatObjectToPost($params, false);
-        }
-
         return $this->handleRequest(
             'GET',
             $this->getRoute(),
-            $params,
+            $this->formatParams($params),
             'array'
         );
     }
@@ -154,14 +160,10 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     public function findAll($params = [])
     {
-        if ($params instanceof AbstractModel) {
-            $params = $this->formatObjectToPost($params, false);
-        }
-
         return $this->handleRequest(
             'GET',
             $this->getRoute().'/all',
-            $params,
+            $this->formatParams($params),
             'model',
             true
         );
@@ -178,14 +180,10 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      */
     public function findAllArr($params = [])
     {
-        if ($params instanceof AbstractModel) {
-            $params = $this->formatObjectToPost($params, false);
-        }
-
         return $this->handleRequest(
             'GET',
             $this->getRoute().'/all',
-            $params,
+            $this->formatParams($params),
             'array',
             true
         );

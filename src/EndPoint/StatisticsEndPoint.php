@@ -52,14 +52,10 @@ class StatisticsEndPoint extends AbstractEntityEndPoint
      */
     public function find($params = [])
     {
-        if ($params instanceof AbstractModel) {
-            $params = $this->formatObjectToPost($params, false);
-        }
-
         return $this->handleRequest(
             'GET',
             $this->getRoute(),
-            $params,
+            $this->formatParams($params),
             'array'
         );
     }

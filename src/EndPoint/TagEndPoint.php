@@ -27,7 +27,7 @@ class TagEndPoint extends AbstractEntityEndPoint
     /**
      * Returns all tags.
      *
-     * @param array $params
+     * @param AbstractModel|array $params
      *
      * @throws ApiException
      *
@@ -38,7 +38,7 @@ class TagEndPoint extends AbstractEntityEndPoint
         return $this->handleRequest(
             'GET',
             $this->getRoute().'/all',
-            $params,
+            $this->formatParams($params),
             'array',
             true
         );
