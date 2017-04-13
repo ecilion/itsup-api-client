@@ -129,6 +129,29 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
      *
      * @return bool|AbstractModel|array
      */
+    public function findArr($params = [])
+    {
+        if ($params instanceof AbstractModel) {
+            $params = $this->formatObjectToPost($params, false);
+        }
+
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute(),
+            $params,
+            'array'
+        );
+    }
+
+    /**
+     * Returns an object from the given parameters.
+     *
+     * @param AbstractModel|array $params
+     *
+     * @throws ApiException
+     *
+     * @return bool|AbstractModel|array
+     */
     public function findAll($params = [])
     {
         if ($params instanceof AbstractModel) {
@@ -140,6 +163,30 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
             $this->getRoute().'/all',
             $params,
             'model',
+            true
+        );
+    }
+
+    /**
+     * Returns an object from the given parameters.
+     *
+     * @param AbstractModel|array $params
+     *
+     * @throws ApiException
+     *
+     * @return bool|AbstractModel|array
+     */
+    public function findAllArr($params = [])
+    {
+        if ($params instanceof AbstractModel) {
+            $params = $this->formatObjectToPost($params, false);
+        }
+
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/all',
+            $params,
+            'array',
             true
         );
     }
