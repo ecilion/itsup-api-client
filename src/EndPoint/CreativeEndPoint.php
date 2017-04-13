@@ -13,6 +13,7 @@
 namespace Itsup\Api\EndPoint;
 
 use Itsup\Api\Model\AbstractModel;
+use Itsup\Api\Model\Creative;
 
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
@@ -45,6 +46,22 @@ class CreativeEndPoint extends AbstractNoteEndPoint
             $this->getRoute().'/sizes',
             [],
             'array'
+        );
+    }
+
+    /**
+     * @param Creative $creative
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function findAllAsArray(Creative $creative)
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/all',
+            $this->formatObjectToPost($creative, false),
+            'array',
+            true
         );
     }
 }
