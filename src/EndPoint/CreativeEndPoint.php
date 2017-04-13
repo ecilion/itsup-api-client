@@ -12,6 +12,8 @@
 
 namespace Itsup\Api\EndPoint;
 
+use Itsup\Api\Model\AbstractModel;
+
 /**
  * @author Cyril LEGRAND <cyril@sctr.net>
  */
@@ -32,4 +34,17 @@ class CreativeEndPoint extends AbstractNoteEndPoint
     protected $propertiesNotToBeSent = [
         'dateCreated',
     ];
+
+    /**
+     * @return array|bool|AbstractModel
+     */
+    public function findSizes()
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/sizes',
+            [],
+            'array'
+        );
+    }
 }
