@@ -20,10 +20,12 @@ use Itsup\Api\Annotation\Transform;
  * @method int getId()
  * @method Account getAccount()
  * @method string getName()
+ * @method string getStatus()
  * @method array|AdZone[] getAdZones()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setName(string $name)
+ * @method setStatus(string $status)
  * @method setAdZones(array|AdZone[] $adZones)
  */
 class Group extends AbstractModel
@@ -44,6 +46,11 @@ class Group extends AbstractModel
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var array
