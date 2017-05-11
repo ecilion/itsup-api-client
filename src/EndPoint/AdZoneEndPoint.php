@@ -102,4 +102,17 @@ class AdZoneEndPoint extends AbstractNoteFollowerEndPoint
             'array'
         );
     }
+
+    /**
+     * @return array
+     */
+    public function findCost()
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/all',
+            ['type' => 'accounting'],
+            'array'
+        );
+    }
 }
