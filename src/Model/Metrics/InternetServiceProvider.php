@@ -20,8 +20,10 @@ use Itsup\Api\Model\AbstractModel;
  *
  * @method int getId()
  * @method string getName()
+ * @method bool getSelected()
  * @method setId(int $id)
  * @method setName(string $name)
+ * @method setSelected(bool $sel)
  */
 class InternetServiceProvider extends AbstractModel
 {
@@ -35,4 +37,18 @@ class InternetServiceProvider extends AbstractModel
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     * @Transform("bool")
+     */
+    public $selected;
+
+    /**
+     * @return bool
+     */
+    public function isSelected()
+    {
+        return $this->selected;
+    }
 }
