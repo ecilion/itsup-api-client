@@ -25,12 +25,16 @@ use Itsup\Api\Model\Account;
  * @method int getClicks()
  * @method int getEvents()
  * @method float getPrice()
+ * @method float getPriceEvent()
+ * @method float getPriceImpression()
  * @method setAccount(Account $Account)
  * @method setDate(\DateTime $date)
  * @method setImpressions(int $impressions)
  * @method setClicks(int $clicks)
  * @method setEvents(int $events)
  * @method setPrice(float $price)
+ * @method setPriceEvent(float $price)
+ * @method setPriceImpression(float $price)
  */
 class Billing extends AbstractModel
 {
@@ -69,4 +73,16 @@ class Billing extends AbstractModel
      * @Transform("float")
      */
     public $price;
+
+    /**
+     * @var float
+     * @Transform("float")
+     */
+    public $priceEvent;
+
+    /**
+     * @var float
+     * @Transform("float")
+     */
+    public $priceImpression;
 }
