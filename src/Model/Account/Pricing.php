@@ -21,10 +21,12 @@ use Itsup\Api\Model\Account;
  *
  * @method Account getAccount()
  * @method \DateTime getDate()
- * @method bool getCpm()
+ * @method float getCpm()
+ * @method float getCpmImps()
  * @method setAccount(Account $account)
  * @method setDate(\DateTime $date)
- * @method setCpm(bool $cpm)
+ * @method setCpm(float $cpm)
+ * @method setCpmImps(float $cpm)
  */
 class Pricing extends AbstractModel
 {
@@ -44,4 +46,9 @@ class Pricing extends AbstractModel
      * @var float
      */
     public $cpm;
+
+    /**
+     * @var float
+     */
+    public $cpmImps;
 }
