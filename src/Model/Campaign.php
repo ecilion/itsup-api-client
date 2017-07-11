@@ -47,6 +47,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array|Tag[] getTags()
  * @method array|User[] getFollowers()
  * @method array|AdZone\AdZoneCampaign getAdZones()
+ * @method array|Campaign\Group getGroups()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setOffer(Offer $offer)
@@ -77,6 +78,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setTags(array|Tag[] $tags)
  * @method setFollowers(array|User[] $followers)
  * @method setAdZones(array|AdZone\AdZoneCampaign[] $adZones)
+ * @method setGroups(array|Campaign\Group[] $groups)
  */
 class Campaign extends AbstractModel
 {
@@ -254,6 +256,12 @@ class Campaign extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\User", collection=true)
      */
     public $followers;
+
+    /**
+     * @var array
+     * @Transform("class", class="Itsup\Api\Model\Campaign\Group", collection=true)
+     */
+    public $groups;
 
     /**
      * @return bool
