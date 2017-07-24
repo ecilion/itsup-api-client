@@ -104,6 +104,21 @@ class AdZoneEndPoint extends AbstractNoteFollowerEndPoint
     }
 
     /**
+     * @param int $minutes
+     *
+     * @return array|bool|AbstractModel
+     */
+    public function latestUpdates(int $minutes = 5)
+    {
+        return $this->handleRequest(
+            'GET',
+            $this->getRoute().'/latest/updates/'.$minutes,
+            [],
+            'array'
+        );
+    }
+
+    /**
      * @return array
      */
     public function findCost()
