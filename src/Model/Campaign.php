@@ -39,6 +39,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array|Metrics\InternetServiceProvider[] getInternetServiceProviders()
  * @method array|Metrics\Language[] getLanguages()
  * @method array|Metrics\OperatingSystem[] getOperatingSystems()
+ * @method array|Metrics\Keyword[] getKeywords()
  * @method array|Campaign\CampaignCreative[] getCreatives()
  * @method array|Campaign\Limit[] getLimits()
  * @method array|Campaign\Sale[] getSales()
@@ -70,6 +71,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setInternetServiceProviders(array|Metrics\InternetServiceProvider[] $internetServiceProviders)
  * @method setLanguages(array|Metrics\Language[] $languages)
  * @method setOperatingSystems(array|Metrics\OperatingSystem[] $operatingSystems)
+ * @method setKeywords(array|Metrics\Keyword[] $keywords)
  * @method setCreatives(array|Campaign\CampaignCreative[] $creatives)
  * @method setLimits(array|Campaign\Limit[] $limits)
  * @method setSales(array|Campaign\Sale[] $sales)
@@ -220,6 +222,12 @@ class Campaign extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Metrics\OperatingSystem", collection=true)
      */
     public $operatingSystems;
+
+    /**
+     * @var Metrics\Keyword[]
+     * @Transform("class", class="Itsup\Api\Model\Metrics\Keyword", collection=true)
+     */
+    public $keywords;
 
     /**
      * @var Campaign\CampaignCreative[]
