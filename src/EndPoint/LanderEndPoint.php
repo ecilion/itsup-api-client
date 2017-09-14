@@ -15,7 +15,7 @@ namespace Itsup\Api\EndPoint;
 /**
  * @author Alex VASIC <alex@quantox.com>
  */
-class LanderEndPoint extends AbstractEndPoint
+class LanderEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.
