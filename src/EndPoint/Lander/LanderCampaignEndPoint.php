@@ -17,19 +17,19 @@ use Itsup\Api\EndPoint\AbstractEntityEndPoint;
 /**
  * @author Alex VASIC <alex@quantox.com>
  */
-class LanderOfferEndPoint extends AbstractEntityEndPoint
+class LanderCampaignEndPoint extends AbstractEntityEndPoint
 {
     /**
      * The model name.
      *
      * @var string
      */
-    protected $model = 'Lander\LanderOffer';
+    protected $model = 'Lander\LanderCampaign';
 
     /**
      * The API URI without the first "/".
      *
      * @var string
      */
-    protected $route = 'lander/offer';
+    protected $route = 'lander/campaign';
 }
