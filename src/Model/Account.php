@@ -35,6 +35,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array getBilling()
  * @method array getExternalStatisticsProviders()
  * @method array getAdZones()
+ * @method array getLanders()
  * @method setId(int $id)
  * @method setType(string $type)
  * @method setName(string $name)
