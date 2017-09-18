@@ -151,4 +151,10 @@ class Account extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\AdZone", collection=true)
      */
     public $adZones;
+
+    /**
+     * @var Lander[]
+     * @Transform("class", class="Itsup\Api\Model\Lander", collection=true)
+     */
+    public $landers;
 }
