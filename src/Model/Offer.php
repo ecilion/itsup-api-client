@@ -115,7 +115,7 @@ class Offer extends AbstractModel
 
     /**
      * @var array
-     * @Transform("class", class="Itsup\Api\Model\Lander", collection=true)
+     * @Transform("class", class="Itsup\Api\Model\Lander\LanderOffer", collection=true)
      */
     public $landers;
 }
