@@ -22,7 +22,6 @@ use Itsup\Api\Annotation\Transform;
  * @method Contact getContact()
  * @method string getName()
  * @method string getPayoutType()
- * @method string getUrl()
  * @method float getDefaultValue()
  * @method string getStatisticUrl()
  * @method string getStatus()
@@ -34,7 +33,6 @@ use Itsup\Api\Annotation\Transform;
  * @method setAccount(Account $account)
  * @method setContact(Contact $contact)
  * @method setName(string $name)
- * @method setUrl(string $url)
  * @method setDefaultValue(float $value)
  * @method setPayoutType(string $payoutType)
  * @method setStatisticUrl(string $statisticsUrl)
@@ -73,11 +71,6 @@ class Offer extends AbstractModel
      * @var string
      */
     public $payoutType;
-
-    /**
-     * @var string
-     */
-    public $url;
 
     /**
      * @var float
