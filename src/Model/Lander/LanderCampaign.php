@@ -14,8 +14,8 @@ namespace Itsup\Api\Model\Lander;
 
 use Itsup\Api\Annotation\Transform;
 use Itsup\Api\Model\AbstractModel;
-use Itsup\Api\Model\Lander;
 use Itsup\Api\Model\Campaign;
+use Itsup\Api\Model\Lander;
 
 /**
  * @author Alex VASIC <alex@quantox.com>
