@@ -35,7 +35,6 @@ use Itsup\Api\Annotation\Transform;
  * @method array getBilling()
  * @method array getExternalStatisticsProviders()
  * @method array getAdZones()
- * @method array getLanders()
  * @method setId(int $id)
  * @method setType(string $type)
  * @method setName(string $name)
@@ -152,10 +151,4 @@ class Account extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\AdZone", collection=true)
      */
     public $adZones;
-
-    /**
-     * @var Lander[]
-     * @Transform("class", class="Itsup\Api\Model\Lander", collection=true)
-     */
-    public $landers;
 }
