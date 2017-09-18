@@ -23,11 +23,11 @@ use Itsup\Api\Model\Offer;
  * @method Lander getLander()
  * @method Offer getOffer()
  * @method string getStatus()
- * @method string getDefault()
+ * @method bool getDefault()
  * @method setLander(Lander $lander)
  * @method setOffer(Offer $offer)
  * @method setStatus(string $status)
- * @method setDefault(string $default)
+ * @method setDefault(bool $default)
  */
 class LanderOffer extends AbstractModel
 {
@@ -49,7 +49,16 @@ class LanderOffer extends AbstractModel
     public $status;
 
     /**
-     * @var string
+     * @var bool
+     * @Transform("bool")
      */
     public $default;
+
+    /**
+     * @return bool
+     */
+    public function isDefault()
+    {
+        return $this->default;
+    }
 }
