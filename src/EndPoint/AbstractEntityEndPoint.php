@@ -291,6 +291,7 @@ abstract class AbstractEntityEndPoint extends AbstractEndPoint
                 isset($result['ApiException']) ?
                     $result['ApiException'] :
                     ['code' => 500, 'type' => 'internal_exception', 'message' => 'Internal Server Error'];
+
             throw new ApiException($exceptionParameters);
         }
         if ($response->getStatusCode() === 204) {
