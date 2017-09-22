@@ -302,4 +302,12 @@ class Campaign extends AbstractModel
     {
         return $this->operatingSystems;
     }
+
+    /**
+     * @return string
+     */
+    public function getRedirectionType()
+    {
+        return count($this->landers) > 0 && empty($this->url) ? 'lander' : 'redirect';
+    }
 }
