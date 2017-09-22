@@ -25,6 +25,7 @@ use Itsup\Api\Annotation\Transform;
  * @method Campaign getFallbackCampaign()
  * @method Event getEvent()
  * @method string getType()
+ * @method string getUrlType()
  * @method int getWidth()
  * @method int getHeight()
  * @method string getUrl()
@@ -58,6 +59,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setFallbackCampaign(Campaign $fallbackCampaign)
  * @method setEvent(Event $event)
  * @method setType(string $type)
+ * @method setUrlType(string $urlType)
  * @method setWidth(int $width)
  * @method setHeight(int $height)
  * @method setUrl(string $url)
@@ -142,6 +144,11 @@ class Campaign extends AbstractModel
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $urlType;
 
     /**
      * @var int
