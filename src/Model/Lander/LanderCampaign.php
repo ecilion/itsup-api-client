@@ -23,10 +23,12 @@ use Itsup\Api\Model\Lander;
  * @method Lander getLander()
  * @method Campaign getCampaign()
  * @method string getStatus()
+ * @method int getWeight()
  * @method string getDefault()
  * @method setLander(Lander $lander)
  * @method setCampaign(Campaign $campaign)
  * @method setStatus(string $status)
+ * @method setWeight(int $weight)
  * @method setDefault(string $default)
  */
 class LanderCampaign extends AbstractModel
@@ -47,6 +49,12 @@ class LanderCampaign extends AbstractModel
      * @var string
      */
     public $status;
+
+    /**
+     * @var int
+     * @Transform("int")
+     */
+    public $weight;
 
     /**
      * @var string
