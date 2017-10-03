@@ -21,12 +21,14 @@ use Itsup\Api\Annotation\Transform;
  * @method Account getAccount()
  * @method string getName()
  * @method string getUrl()
+ * @method string getStatus()
  * @method \DateTime getDateCreated()
  * @method array getOffers()
  * @method setId(int $id)
  * @method setAccount(Account $account)
  * @method setName(string $name)
  * @method setUrl(string $url)
+ * @method setStatus(string $status)
  * @method setDateCreated(\DateTime $dateCreated)
  * @method setOffers(Offer $offer)
  */
@@ -53,6 +55,11 @@ class Lander extends AbstractModel
      * @var string
      */
     public $url;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var \DateTime
