@@ -241,7 +241,7 @@ class Campaign extends AbstractModel
 
     /**
      * @var Campaign\CampaignEvent[]
-     * @Transform("class", class="Itsup\Api\Model\Campaign\CampaignEvents", collection=true)
+     * @Transform("class", class="Itsup\Api\Model\Campaign\CampaignEvent", collection=true)
      */
     public $events;
 
