@@ -41,6 +41,7 @@ use Itsup\Api\Annotation\Transform;
  * @method array|Metrics\OperatingSystem[] getOperatingSystems()
  * @method array|Metrics\Keyword[] getKeywords()
  * @method array|Campaign\CampaignCreative[] getCreatives()
+ * @method array|Campaign\CampaignEvent[] getEvents()
  * @method array|Campaign\Limit[] getLimits()
  * @method array|Campaign\Sale[] getSales()
  * @method bool getKeepAlive()
@@ -74,6 +75,7 @@ use Itsup\Api\Annotation\Transform;
  * @method setOperatingSystems(array|Metrics\OperatingSystem[] $operatingSystems)
  * @method setKeywords(array|Metrics\Keyword[] $keywords)
  * @method setCreatives(array|Campaign\CampaignCreative[] $creatives)
+ * @method setEvents(array|Campaign\CampaignEvent[] $events)
  * @method setLimits(array|Campaign\Limit[] $limits)
  * @method setSales(array|Campaign\Sale[] $sales)
  * @method setKeepAlive(bool $keepAlive)
@@ -236,6 +238,12 @@ class Campaign extends AbstractModel
      * @Transform("class", class="Itsup\Api\Model\Campaign\CampaignCreative", collection=true)
      */
     public $creatives;
+
+    /**
+     * @var Campaign\CampaignEvent[]
+     * @Transform("class", class="Itsup\Api\Model\Campaign\CampaignEvent", collection=true)
+     */
+    public $events;
 
     /**
      * @var Campaign\Limit[]
