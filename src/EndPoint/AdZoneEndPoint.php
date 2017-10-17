@@ -54,7 +54,8 @@ class AdZoneEndPoint extends AbstractNoteFollowerEndPoint
     {
         return $this->handleRequest(
             'POST',
-            $this->getRoute().'/'.$adZone->getId().'/duplicate/'.$type
+            $this->getRoute().'/'.$adZone->getId().'/duplicate/'.$type,
+            ['context' => 'id']
         );
     }
 
